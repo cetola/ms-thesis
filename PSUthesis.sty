@@ -1,0 +1,262 @@
+% People are free to borrow as long as they change the name and date
+% in the \typeout lines, the name of the file, and acknowledge the
+% work that has been done by previous people.  Ideally they should
+% comment their changes.
+
+% Original version by Joseph Pallas, Stanford University back in 1989
+
+% Modified 11/14/06 by Josef Lotz
+%    This was originally a Stanford style document and was modified
+%    to suit the purposes of NEAR-Lab M.S. students at Portland State
+%    University. I make no promises of absolute correctness so please
+%    verify your results. A lot of unused functionality was stripped out
+%    and code was changed to Portland State University formatting.
+%
+%    There is a lot of functionality that does not apply to PSU or the
+%    ECE dept that I am leaving in, because I'm scared of breaking something! :-)
+%    If you make changes date and comment. Thanks to Reto Toengi, Jorge Quinas
+%    Brian Orlowski for their help in modifying/testing this file. They were
+%    gracious enough to pass what they learned on to us!
+%
+
+% Modified 03/14/2008 by Saurabh Jain(SJ)
+%   Separating out sub sections for ease of maintainance
+%   Adding macro "comment"/"cm" for multi line commands
+%   Author name in upper case
+%   
+%   I am thankful to the people who have worked to 
+%   create this document in a ready to use format.
+%   It helped me save tonnes of time figuring out how to 
+%   format things right.
+
+
+\RequirePackage{setspace}
+
+% ==========================================================================================
+% Set Margins
+% ==========================================================================================
+% Use 1.3 times the normal baseline-to-baseline skip
+\setstretch{1.66}  % This controls the line spacing
+
+% spacing | 10pt | 11pt | 12pt |
+%-------------------------------
+% 1.5     | 1.25 | 1.21 | 1.24
+% double  | 1.67 | 1.62 | 1.66
+
+% from The LaTex Companion, 2nd Ed., p.108
+
+
+% ================================================================================================
+%  These values may need to be tweaked depending on which compiler you are using,
+%    for example, I got different margins if I used WinEdt on a Windows box than I
+%    did if I used Kile on an Ubuntu box, using the same values.
+% ================================================================================================
+% OGS says 1in margins top,right,bottom and 1.5in left
+% I set it up for 1.1in top,right,bottom and 1.6in left. They will not take anything less or borderline
+%  so make it slightly larger to be safe.
+% ================================================================================================
+% SJ: Needed to adjust the settings for pdflatex. And grad school wants 1.1" top, bottom, right and 1.6" on left
+
+\if@twoside
+     \setlength\oddsidemargin   {0.7in}
+     \setlength\evensidemargin  {0.2in}
+     \setlength\marginparwidth  {1.0in}
+  \else
+     \setlength\oddsidemargin   {0.8in} % 1-inch by default, so anything here adds to the 1-inch
+ %    \setlength\oddsidemargin   {0.6in} % 1-inch by default, so anything here adds to the 1-inch
+     \setlength\evensidemargin  {0.1in} 
+ %    \setlength\evensidemargin  {0.1in} 
+     \setlength\marginparwidth  {1.0in} 
+  \fi
+
+\marginparsep 0.0in 
+
+\voffset  0.2in 
+\hoffset -0.2in
+
+\topmargin 0pt 
+\headheight 0pt 
+\headsep 0pt
+
+\setlength{\footskip}{15pt}
+
+\textheight 8.4in
+%\textheight 9.0in % Changing text height for proper margin settings
+
+% !! This takes precedence over left margin, so even if you set the left margin to a value
+%  the textwidth will make the actual left margin the "leftover"
+\textwidth 5.8in
+%\textwidth 6.1in % Restting text width for pdflatex and OGS requirements.
+
+
+% Disallow page breaks at hyphens (this will give some underfull vbox's,
+% so an alternative is to use \brokenpenalty=100 and manually search
+% for and fix such page breaks)
+\brokenpenalty=10000
+
+%>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+%>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+% DON`T DORK WITH ANYTHING BELOW THIS!
+
+% ==========================================================================================
+% Define Macros
+% ==========================================================================================
+\long\def\comment#1{}				% Defining macro for multi line comments --Saurabh [Mar 16, 2008]
+\def\dept#1{\gdef\@dept{#1}}
+\def\advis@r{Adviser} % default spelling
+\def\principaladviser#1{\gdef\@principaladviser{#1}}
+\def\principaladvisor#1{\gdef\@principaladviser{#1}\gdef\advis@r{Advisor}}
+\def\coprincipaladvisor#1{\gdef\@coprincipaladviser{#1}\gdef\advis@r{Co-Advisor}}
+\def\coprincipaladviser#1{\gdef\@coprincipaladviser{#1}\gdef\advis@r{Co-Adviser}}
+\def\firstreader#1{\gdef\@firstreader{#1}}
+\def\secondreader#1{\gdef\@secondreader{#1}}
+\def\thirdreader#1{\gdef\@thirdreader{#1}}
+\def\deptchair#1{\gdef\@deptchair{#1}}
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\submityear#1{\gdef\@submityear{#1}}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
+% needed only for dual language departments
+\def\subtitle#1{\gdef\@subtitle{#1}}
+
+\def\@title{}\def\@author{}\def\@dept{computer science}
+\def\@principaladviser{}\def\@firstreader{*}\def\@secondreader{*}
+\def\@coprincipaladviser{*}
+\def\@thirdreader{*}
+
+
+% Add new commands here
+% Use newcommand or renewcommand to create a new command. As \def is dangerous due to lack of error checking
+% Older macros have been preserved and untouched for legacy.(Truth is I do not want to break anything! -SJ) 
+\newcommand{\cm}{\comment}			% Aliasing "\cm" for "\comment" command   --Saurabh [Mar 16, 2008]
+\newcommand{\bld}{\textbf}			% Aliasing "\bld" for "\textbf" command		--SJ [Mar 21, 2008]
+
+
+\newif\ifcopyright \newif\iffigurespage \newif\iftablespage
+\newif\ifthesiscopyright
+\copyrighttrue \figurespagetrue \tablespagetrue
+\thesiscopyrighttrue
+
+\def\@standardsub{submitted to the department of \lowercase\expandafter{\@dept}\\
+                and the committee on graduate studies}
+\def\@standardend{}
+
+% ==========================================================================================
+% Abstract Page
+% ==========================================================================================
+
+% Making a separate file, so that maintaining it and editing it is simpler --Saurabh [Mar 14,2008]
+
+\input{abstractDef}
+
+% ==========================================================================================
+% Title Page
+% ==========================================================================================
+% ** Note: leave blanks lines below as is for spacing
+\def\titlepage{     %
+\thispagestyle{empty}%
+\begin{center}
+\vspace{1.0in}
+\@title        \\
+\@subtitle
+
+\vspace{1.5in}
+
+by
+
+\@author
+
+\vspace{1.5in}
+
+\begin{singlespace}
+    A thesis submitted in partial fulfillment of the \\
+    requirements for the degree of
+
+    \vspace{.5in}
+
+    Master of Science \\ in \\ Electrical and Computer Engineering
+
+    \vspace{.5in}
+    
+    Thesis Committee: \\
+    John Acken, Chair \\
+    Roy Kravitz \\
+    Tom Schubert \\
+    
+    
+    \vspace{.5in}
+
+    \noindent Portland State University \\ \@submityear
+\end{singlespace}
+\end{center}
+
+% ==========================================================================================
+% Copyright Page
+% ==========================================================================================
+\newpage
+}
+\def\thesiscopyrightpage{%
+        \null\vfill
+        \begin{center}
+                \large
+                \copyright\ Copyright\ by \@author\ \@copyrightyear\\
+                All Rights Reserved
+        \end{center}
+        \vfill\newpage}
+
+\def\tradcopyrightpage{%
+        \null\vfill
+        \begin{center}
+                \large
+                Copyright\ \copyright\ \@copyrightyear\ by \@author\\
+                All Rights Reserved
+        \end{center}
+        \vfill\newpage}
+
+% ==========================================================================================
+% Signature Page 
+%      or
+% Approval Page
+% ==========================================================================================
+\input{signature}   % Making a separate file, so that maintaining it and editing it is simpler --Saurabh [Mar 14,2008]
+
+% ==========================================================================================
+% Define Preface Macros
+% ==========================================================================================
+\def\beforepreface{
+        \pagenumbering{roman}
+        \pagestyle{plain}
+        \signaturepage
+        \titlepage
+        \ifcopyright\ifthesiscopyright\thesiscopyrightpage\else\tradcopyrightpage\fi\fi
+        \cleardoublepage}
+
+\def\prefacesection#1{%
+        \chapter*{#1}
+        \addcontentsline{toc}{chapter}{#1}}
+
+\def\afterpreface{\newpage
+        \tableofcontents
+       \iftablespage
+               \listoftables
+               \addcontentsline{toc}{chapter}{List of Tables}
+       \fi
+        \iffigurespage
+        \pagebreak
+                \addcontentsline{toc}{chapter}{List of Figures}
+        \listoffigures
+        \fi
+        \cleardoublepage
+        }
+
+% ==========================================================================================
+% References
+% ==========================================================================================
+% Redefine \thebibliography to go to a new page and put an entry in the
+% table of contents
+\let\@ldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\newpage
+                \@ldthebibliography{#1}%
+\addcontentsline{toc}{chapter}{\bibname}}
+
+% Start out normal
+\pagestyle{plain}

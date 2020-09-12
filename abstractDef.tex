@@ -1,0 +1,56 @@
+% People are free to borrow as long as they change the name and date
+% in the \typeout lines, the name of the file, and acknowledge the
+% work that has been done by previous people.  Ideally they should
+% comment their changes.
+
+% Original version by Joseph Pallas, Stanford University back in 1989
+
+% Modified 11/14/06 by Josef Lotz
+%    This was originally a Stanford style document and was modified
+%    to suit the purposes of NEAR-Lab M.S. students at Portland State
+%    University. I make no promises of absolute correctness so please
+%    verify your results. A lot of unused functionality was stripped out
+%    and code was changed to Portland State University formatting.
+%
+%    There is a lot of functionality that does not apply to PSU or the
+%    ECE dept that I am leaving in, because I'm scared of breaking something! :-)
+%    If you make changes date and comment. Thanks to Reto Toengi, Jorge Quinas
+%    Brian Orlowski for their help in modifying/testing this file. They were
+%    gracious enough to pass what they learned on to us!
+%
+
+% Modified 03/14/2008 by Saurabh Jain
+%    Separated the abstract defination file for ease of maintainance   
+
+% ==========================================================================================
+% Abstract Page
+
+% Modified 03/14/2008 by Saurabh Jain
+%     Added page counter for abstract command:
+%         Initially if abstract rolled over into page second page then page count was 
+% 	  sum of all the pages before that page. 
+
+% ==========================================================================================
+
+\def\abstract{%
+\thispagestyle{empty}%
+\setcounter{page}\@ne                                                    % Resetting page count 
+
+\begin{center}
+ABSTRACT
+\end{center}
+
+\noindent An abstract of the thesis of \@author for the Master of
+Science in \expandafter{\@dept} presented \@submitdate.
+
+% Trying to meet the PSU guidelines for vertical space. I have no measure, so going by rough approx right now. 
+% TODO: Fix the spacing!!  --Saurabh [Mar 16, 2008]
+%  \vspace{1.0in}
+\vspace{0.25in}
+
+\noindent   Title:~\@title \\%
+%\indent ~~~~\@subtitle                                                  % Removing it as sub title is not required --Saurabh [Mar 14, 2008]
+
+% \vspace{1.0in}							 % Removed --Saurabh [Mar 14, 2008]
+}
+

@@ -1,0 +1,56 @@
+\documentclass[12pt,oneside,letterpaper]{PSUreport}
+\usepackage{PSUthesis}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage[acronym,toc]{glossaries}
+
+\makenoidxglossaries
+\input{acronyms.tex}
+
+\begin{document}
+\title{A Test that just might work}
+\subtitle{}
+\author{Stephano Cetola}
+\principaladviser{Prof. John Aken}             % Principal advisor
+\firstreader{Prof. Marek A. Perkowski}                           % First member
+\secondreader{Prof. Eric Wan}                % Second member
+\deptchair{Prof. James McNames}                        % Dept. Chair
+\submitdate{\today}                                    % Submission date
+\submityear{2021}                                      % Just do it!
+
+\copyrightfalse
+\figurespagefalse
+\tablespagefalse
+\null\vfill
+\begin{center}
+        \copyright\ 2020 Stephano Cetola \\
+        This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/4.0/}.
+\end{center}
+\begin{center}
+\includegraphics{./img/by.eps}
+\end{center}
+\vfill\newpage
+ 
+\beforepreface
+\prefacesection{Preface}
+This thesis tells you all you need to know about...
+\prefacesection{Acknowledgments}
+I would like to thank...
+\afterpreface
+
+\printnoidxglossary[type=\acronymtype]
+
+%==============================================================================
+% Chapters
+%==============================================================================
+\glsresetall
+\chapter{Introduction}
+\pagenumbering{arabic}
+\input{introduction.tex}
+
+%==============================================================================
+% Bibliography
+%==============================================================================
+\bibliographystyle{IEEEtran}
+\bibliography{mybib}
+\end{document}
