@@ -11,3 +11,7 @@ jobs:
         with:
           root_file: mainDoc.tex
           args: -bibtex -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ms-thesis-artifact
+          path: mainDoc.pdf
