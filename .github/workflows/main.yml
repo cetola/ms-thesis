@@ -10,4 +10,4 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: mainDoc.tex
-          args: -bibtex
+          args: -bibtex -pdf -file-line-error -halt-on-error -interaction=nonstopmode
