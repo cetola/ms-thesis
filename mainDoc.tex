@@ -1,10 +1,17 @@
 \documentclass[12pt,oneside,letterpaper]{PSUreport}
 \usepackage{PSUthesis}
 \usepackage[pdftex]{graphicx}
+\usepackage[dvipsnames]{xcolor}
 \graphicspath{ {./img/} }
 \usepackage{epstopdf}
-\usepackage{hyperref}
 \usepackage[acronym,toc]{glossaries}
+\usepackage{tikz}
+\usetikzlibrary{colorbrewer}
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+\usepackage[breaklinks]{hyperref}
 
 \makenoidxglossaries
 \input{acronyms.tex}
@@ -21,7 +28,7 @@
 \submityear{2021}                                      % Just do it!
 
 \copyrightfalse
-\figurespagefalse
+\figurespagetrue
 \tablespagefalse
 \null\vfill
 \begin{center}

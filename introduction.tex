@@ -4,7 +4,33 @@ In an attempt to address these issues, microprocessor designers have implemented
 \section{The Intel SGX Solution}
 Intel \gls{sgx} is built on designs of software attestation already proven in technologies like the \gls{tpm} and Intel \gls{txt}. In \gls{sgx}, these concepts of software attestation are used to create containerized sections of memory on the remote computer called “secure enclaves” where data and code can be loaded or executed securely. These enclaves are verified by both a cryptographic attestation key of the container’s contents as well as a hardware \gls{rot} manufacturer’s key. Unlike the \gls{tpm} and gls{txt} technologies, \gls{sgx} securely operates only on a small amount of data and code called the \gls{tcb}, leaving the majority of memory outside this \gls{tcb}.
 \section{Initial SGX Enclave Setup}
-\gls{sgx} sets aside a memory region, called the \gls{prm}. The CPU protects the \gls{prm} from all non-enclave memory accesses, including kernel, hypervisor and \gls{smm} accesses, and \gls{dma} from peripherals\cite{Costan2016IntelSE}. This memory is used to store the \gls{epc}, which are the 4kb pages holding both the enclave data and code. While untrusted system software both assigns these EPCs to an enclave and loads them with data, it is the CPU which keeps track of all the \gls{epc}s ensuring that they only belong to one enclave. Once the system software loads data into the enclave it asks the CPU to mark that enclave as initialized, after which no other data may be loaded into the enclave as this setup process is disabled for that enclave. After initialization, this enclave is measured by a cryptographic hash to ensure that any operations performed on the enclave are done so in a secure environment.
+Configuration settings for \gls{sgx} exists as part of the platform firmware, and most firmware vendors provide simple tools for enabling \gls{sgx}. If \gls{sgx} is enabled, the firmware is responsible for setting aside a memory region called the \gls{prm}, and most firmware tools allow specifying the size of the space allocated. The firmware allocates the \gls{prm} by setting a pair of \glspl{msr}, collectively known as the PRMRR. The CPU will then protect the \gls{prm} from all non-enclave memory accesses including kernel, hypervisor and \gls{smm} accesses, as well as \gls{dma} from peripherals\cite{Costan2016IntelSE}. This memory is used to store the \gls{epc}, which are the 4kb pages holding both the enclave data and code. The exact layout of the \gls{prm} and \gls{epc} are model-specific, and depend on firmware settings. While untrusted system software both assigns these EPCs to an enclave and loads them with data, it is the CPU which keeps track of all the \gls{epc}s ensuring that they only belong to one enclave. Once the system software loads data into the enclave it asks the CPU to mark that enclave as initialized, after which no other data may be loaded into the enclave as this setup process is disabled for that enclave. After initialization, this enclave is measured by a cryptographic hash to ensure that any operations performed on the enclave are done so in a secure environment.
+\vspace{10 mm}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    block/.style ={rectangle, draw=black, thick, fill=YellowGreen,
+          text width=12cm, text centered, rounded corners},
+    line/.style ={draw, ->}
+]
+
+\node[block] (s1) at (0,0) {Firmware sets up the PRM};
+\node[block, below of = s1] (s3) {CPU creates the blank EPC and stores it in the PRM};
+\node[block, below of = s3] (s5) {OS loads data into the enclave};
+\node[block, below of = s5] (s10) {CPU marks the enclave as initialized};
+\node[block, below of = s10] (s15) {CPU hashes the enclave’s initial state};
+
+\path [line] (s1) -- (s3);
+\path [line] (s3) -- (s5);
+\path [line] (s5) -- (s10);
+\path [line] (s10) -- (s15);
+
+\end{tikzpicture}
+
+\caption[Setting Up SGX]{Workflow for setting up an enclave.}
+\label{fig:sgx_setup}
+\end{figure}
+
 \section{Executing SGX Enclave Code}
 Execution flow can only move into an enclave via a special CPU instruction, much like switching from user mode to kernel mode. The actual execution happens in user mode and takes advantage of address translation from the Operating System or hypervisor. The CPU executing the enclave code performs an \gls{aex} whenever execution moves outside the enclave such as servicing an interrupt or during a page fault. The CPU state is saved inside the enclave before exiting ensuring that the CPU can security restore the state of execution. There are special machine mode CPU instructions that are used both in allocating \gls{epc} pages to the enclave as well as evicting those pages into untrusted DRAM. This facilitates code outside the enclave to operate on code within the enclave. \gls{sgx} uses cryptographic protections to assure the confidentiality, integrity and freshness of the evicted \gls{epc} pages while they are stored in untrusted memory\cite{Costan2016IntelSE}. In this way, Intel \gls{sgx} is able to allow a specific amount of code and data to remain protected while still allowing access to that data by code outside the trust boundary.
 \section{The Arm TrustZone Solution}
