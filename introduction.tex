@@ -9,28 +9,11 @@ Configuration settings for \gls{sgx} exists as part of the platform firmware, an
 
 This section of specially allocated memory is used to store the \gls{epc}, which are the 4kb pages holding both the enclave data and code. The exact layout of the \gls{prm} and \gls{epc} are model-specific, and depend on firmware settings. While untrusted system software both assigns these EPCs to an enclave and loads them with data, it is the CPU which keeps track of all the \gls{epc}s ensuring that they only belong to one enclave. Once the system software loads data into the enclave it asks the CPU to mark that enclave as initialized, after which no other data may be loaded into the enclave as this setup process is disabled for that enclave. After initialization, this enclave is measured by a cryptographic hash to ensure that any operations performed on the enclave are done so in a secure environment.
 \vspace{10 mm}
+
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[
-    block/.style ={rectangle, draw=black, thick, fill=YellowGreen,
-          text width=12cm, text centered, rounded corners},
-    line/.style ={draw, ->}
-]
-
-\node[block] (s1) at (0,0) {Firmware sets up the PRM};
-\node[block, below of = s1] (s3) {CPU creates the blank EPC and stores it in the PRM};
-\node[block, below of = s3] (s5) {OS loads data into the enclave};
-\node[block, below of = s5] (s10) {CPU marks the enclave as initialized};
-\node[block, below of = s10] (s15) {CPU hashes the enclave’s initial state};
-
-\path [line] (s1) -- (s3);
-\path [line] (s3) -- (s5);
-\path [line] (s5) -- (s10);
-\path [line] (s10) -- (s15);
-
-\end{tikzpicture}
-
-\caption[Setting Up SGX]{Workflow for setting up an enclave.}
+\input{tikz/sgx-flow}
+\caption[Setting Up SGX]{\textbf{Workflow for setting up an enclave.}}
 \label{fig:sgx_setup}
 \end{figure}
 
@@ -46,18 +29,13 @@ Since 2013, Arm has provided \glsreset{tfa}\gls{tfa} as an open source reference
 Arm Trusted Firmware uses the scaffolding provided by the A-Class devices to implement the key aspects of TrustZone, namely Trusted Boot and the Secure Monitor. In oder to understand these systems we must first understand the privilege levels available to an Arm A-Class platform.
 
 {\renewcommand{\arraystretch}{2.5}
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Privilege Level} & \textbf{Description} & \textbf{Implementation}                                          \\ \hline
-EL-0 & Application Privilege Level & Supported by CPU architecture                                                   \\ \hline
-EL-1 & Kernel Privilege Level & Supported by CPU architecture                                                   \\ \hline
-EL-2 & \makecell[l]{Virtualization Privilege Level \\ (Optional)} & Supported by CPU architecture                                                   \\ \hline
-EL-3 & Secure Privilege Level & \makecell[l]{Supported by CPU architecture \\ or a dedicated embedded \\ security processor} \\ \hline
-\end{tabular}
-\caption{Arm Privilege Level Mapping}
-\label{tab:arm_priv_lev_map}
-\end{table}
+\input{tables/arm-els}
 
-Unlike Intel platforms which refer to their privilege levels as rings, Arm uses ``Exception Levels'' EL0 through EL3 \cite{ArmTrustedBoot}.
+Unlike Intel platforms which refer to their privilege levels as rings, Arm uses ``Exception Levels'' EL0 through EL3 \cite{ArmV8Fund}.
+
+\begin{figure}[htbp]
+\makebox[\textwidth][c]{\input{tikz/trustzone-overview}
+}\caption[TrustZone Example of Normal and Secure World]{\textbf{Secure World implementation using ARM TrustZone.}
+The \gls{soc} boots into the Secure World and a monitor is registered which acts as the interface between the Secure and Normal Worlds.
+\label{fig:trustzone}}
+\end{figure}

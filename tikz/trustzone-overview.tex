@@ -1,0 +1,41 @@
+\makebox[\linewidth]{
+\begin{tikzpicture}[scale=0.8, transform shape,nodes={text width=3cm, align=center, minimum height=1cm}, small/.style={font=\small}]
+
+% nodes
+\node [draw,outer sep=0,inner sep=1] at (-9,10.5) {Generic Application};
+\node [draw,outer sep=0,inner sep=1] (v1) at (-5,10.5) {App w/Security};
+\node [draw,outer sep=0,inner sep=1] (v4) at (-9,8) {Scheduler};
+\node [draw,outer sep=0,inner sep=1] (v2) at (-5,8) {TrustZone driver};
+\node [draw] (v8) at (0.5,10.5) {Security Service};
+\node [draw] (v7) at (4.5,10.5) {Standalone Application};
+\node [draw] (v6) at (0.5,8) {Cross-world IPC manager};
+\node [draw] (v5) at (4.5,8) {Scheduler};
+\node [draw] (v3) at (0.5,6) {Secure Monitor};
+\node [] at (-7,11.5) {Normal world};
+\node [] at (2.5,11.5) {Secure World};
+\node [] at (-7,9) {Kernel};
+\node [] at (2.5,9) {Kernel};
+\node [small] at (-12,9.75) {User};
+\node [small] at (-12,9.25) {Privileged};
+\node [small, minimum height=0] (v9) at (0.5,4) {Interrupt};
+
+% edges
+\draw[latex'-latex']  (v1) -- (v2);
+\draw [latex'-latex'] (v2) |- (v3.170) node [near end, small, above, minimum height=0] {SMC};
+\draw [-latex'] (v3) -| (v4);
+\draw [latex'-] (v5) |- (v3);
+\draw [latex'-latex'] (v8) -- (v6);
+\draw [latex'-latex'] (v6) -- (v5);
+\draw [latex'-latex'] (v3) -- (v6);
+
+% fits
+\begin{scope}[on background layer]
+  \draw [dotted] (-11,12) rectangle (-3,5);
+  \draw [dotted, fill=CornflowerBlue!10!white] (-1.5,12) rectangle (6.5,5);
+\end{scope}
+\draw [] (-10.75,9.25) rectangle (-3.25,7.25);
+\draw [] (-1.25,9.25) rectangle (6.25,7.25);
+\draw [dashed] (-13,9.5) -- (7,9.5);
+\draw [-latex'] (v9) -- (v3);
+\end{tikzpicture}
+}
