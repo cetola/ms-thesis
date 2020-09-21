@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+	state/.style={draw, ellipse, text width=2cm, minimum height=1.4cm, align=center},
+	arrow/.style={-latex'},
+	label/.style={text width=3cm, align=center, font=\small}
+]
+\node[state] (v1) at (0,0) {non-existent};
+\node[state] (v2) at (6,0) {not initialized};
+\node[state, fill=CornflowerBlue!10!white] (v3) at (6,-4.5) {initialized};
+\node[state, fill=CornflowerBlue!10!white] (v4) at (0,-4.5) {initialized\\(in use)};
+
+\draw[arrow]  (v1) edge node[above, label] {ECREATE} (v2);
+\draw[arrow]  (v2) edge node[right, label, align=left] {EINIT} (v3);
+\draw[arrow]  (v2) edge[loop, looseness=5, in=330, out=30] node[right, label, align=left] {EADD\\EEXTEND} (v2);
+\draw[arrow]  (v3) edge[loop, looseness=5, in=300, out=240] node[below, label] {page management instructions} (v3);
+\draw[arrow]  (v3) edge[bend left=15] node[below, label] {EENTER\\ERESUME} (v4);
+\draw[arrow]  (v4) edge[bend left=15] node[above, label] {EEXIT\\AEX} (v3);
+\draw[arrow]  (v3) edge[bend right=15] node[below left, label, align=right, pos=0.7] {EREMOVE} (v1);
+\draw[arrow]  (v4) edge[loop, looseness=5, in=300, out=240] node[below, label] {page management instructions} (v4);
+\draw[arrow]  (v4) edge[loop, looseness=5, in=210, out=150] node[left, align=right] {EGETKEY\\EREPORT} (v4);
+\end{tikzpicture}
