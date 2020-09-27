@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+    block/.style ={rectangle, draw=black, thick, fill=YellowGreen,
+          text width=12cm, text centered, rounded corners},
+    line/.style ={draw, ->}
+]
+
+\node[block] (s1) at (0,0) {Cold Reset};
+\node[block, below of = s1] (s3) {Trusted Boot ROM \gls{soc} \gls{tee} Configuration};
+\node[block, below of = s3] (s5) {Arm Trusted Firmware (ROM or Trusted SRAM)};
+\node[block, below of = s5] (s10) {Trusted OS Execution};
+\node[block, below of = s10] (s15) {Normal World Bootloader Execution};
+
+\path [line] (s1) -- (s3);
+\path [line] (s3) -- (s5);
+\path [line] (s5) -- (s10);
+\path [line] (s10) -- (s15);
+
+\end{tikzpicture}
