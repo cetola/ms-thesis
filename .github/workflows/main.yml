@@ -10,8 +10,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: mainDoc.tex
-          args: -bibtex -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          args: -bibtex -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=ms-thesis mainDoc.tex
       - uses: actions/upload-artifact@v2
         with:
           name: ms-thesis-artifact
-          path: mainDoc.pdf
+          path: ms-thesis.pdf
