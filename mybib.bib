@@ -1,66 +1,578 @@
-@PHDTHESIS{Gentry01,
-  title    = "A fully homomorphic encryption scheme",
-  author   = "Gentry, Craig",
-  year     =  2009,
-  school   = "Stanford University"
+@inproceedings{formalFound,
+author = {Subramanyan, Pramod and Sinha, Rohit and Lebedev, Ilia and Devadas, Srinivas and Seshia, Sanjit A.},
+title = {A Formal Foundation for Secure Remote Execution of Enclaves},
+year = {2017},
+isbn = {9781450349468},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3133956.3134098},
+doi = {10.1145/3133956.3134098},
+booktitle = {Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {2435–2450},
+numpages = {16},
+keywords = {secure computation, remote attestation, confidentiality, formal verification, enclave programs, integrity},
+location = {Dallas, Texas, USA},
+series = {CCS '17}
 }
 
-@article{OMTP01,
-  title={OMTP hardware requirements and defragmentation, Trusted Environment OMTP TR1},
-  author={Open Mobile Terminal Platform Group},
-  journal={Open Mobile Terminal Platform},
+@phdthesis{gentryPhd,
+author = {Gentry, Craig},
+advisor = {Boneh, Dan},
+title = {A Fully Homomorphic Encryption Scheme},
+year = {2009},
+isbn = {9781109444506},
+school = {Stanford University},
+address = {Stanford, CA, USA}
+}
+
+@MISC{Maas13ahigh-performance,
+    author = {Martin Maas and Eric Love and Emil Stefanov and Mohit Tiwari and Elaine Shi and John Kubiatowicz and Dawn Song},
+    title = {A high-performance oblivious ram controller on the convey hc-2ex heterogeneous computing platform},
+    year = {2013}
+}
+
+@article{Gueron2016AME,
+  title={A Memory Encryption Engine Suitable for General Purpose Processors},
+  author={Shay Gueron},
+  journal={International Association for Cryptologic Research ePrint Archive},
+  year={2016},
+  volume={2016},
+  pages={204}
+}
+
+@article{Kiriansky2018,
+author = {Kiriansky, Vladimir and Lebedev, Ilia and Amarasinghe, Saman and Devadas, Srinivas and Emer, Joel},
+doi = {10.1109/MICRO.2018.00083},
+isbn = {9781538662403},
+issn = {10724451},
+journal = {Proceedings of the Annual International Symposium on Microarchitecture, MICRO},
+keywords = {Cache partitioning,Side channel attacks,Speculative execution},
+pages = {974--987},
+title = {{DAWG: A defense against cache timing attacks in speculative execution processors}},
+volume = {2018-Octob},
+year = {2018}
+}
+
+@article{Pinto2019,
+author = {Pinto, Sandro and Santos, Nuno},
+doi = {10.1145/3291047},
+issn = {15577341},
+journal = {ACM Computing Surveys},
+keywords = {Arm,Security,Survey,TEE,TrustZone,Virtualization},
+number = {6},
+title = {{Demystifying arm trustzone: A comprehensive survey}},
+volume = {51},
+year = {2019}
+}
+
+@article{Gottel2019,
+archivePrefix = {arXiv},
+arxivId = {1904.11545},
+author = {G{\"{o}}ttel, Christian and Felber, Pascal and Schiavoni, Valerio},
+doi = {10.1007/978-3-030-22496-7_11},
+eprint = {1904.11545},
+isbn = {9783030224950},
+issn = {16113349},
+journal = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+keywords = {Arm TrustZone,IoT,Op-Tee,Secure storage},
+pages = {170--178},
+title = {{Developing secure services for IoT with OP-TEE: A first look at performance and usability}},
+volume = {11534 LNCS},
+year = {2019}
+}
+
+@techreport{Nelson2019,
+     title = {{Developing security monitors on RISC-V}},
+     author = {Nelson, Luke and Wang, X I},
+     institution = {University of Washington},
+     year = {2019}
+}
+
+@inproceedings{vanderVeen:2016,
+ author = {van der Veen, Victor and Fratantonio, Yanick and Lindorfer, Martina and Gruss, Daniel and Maurice, Clementine and Giovanni Vigna and Bos, Herbert and Razavi, Kaveh and Giuffrida, Cristiano},
+ title = {{Drammer: Deterministic Rowhammer Attacks on Mobile Platforms}},
+ booktitle = {Proceedings of the ACM Conference on Computer and Communications Security (CCS)},
+ year = {2016},
+ month = {October},
+ address = {Vienna, Austria},
+ pages = {1675--1689},
+ numpages = {15},
+} 
+
+@ARTICLE {9103538,
+author = {David Kohlbrenner and Shweta Shinde and Dayeol Lee and Krste Asanovi{\'{c}} and Dawm Song},
+journal = {IEEE Security \& Privacy},
+title = {Building Open Trusted Execution Environments},
+year = {2020},
+volume = {18},
+number = {05},
+issn = {1558-4046},
+pages = {47-56},
+keywords = {hardware;cryptography;software;virtual machine monitors;trust management;cloud computing},
+doi = {10.1109/MSEC.2020.2990649},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {sep}
+}
+
+@inproceedings{vanbulck2018foreshadow,
+    author = {Van Bulck, Jo and Minkin, Marina and Weisse, Ofir and Genkin, Daniel and Kasikci, Baris and Piessens, Frank and Silberstein, Mark and Wenisch, Thomas F. and Yarom, Yuval and Strackx, Raoul},
+    title = {{Foreshadow: Extracting the Keys to the Intel SGX Kingdom with Transient Out-of-Order Execution}},
+    booktitle = {Proceedings of the 27th {USENIX} Security Symposium},
+    year = {2018},
+    month = {August},
+    publisher = {{USENIX Association}}
+}
+
+@article{weisse2018foreshadowNG,
+  title={{Foreshadow-NG: Breaking the Virtual Memory Abstraction with Transient Out-of-Order Execution}},
+  author={Weisse, Ofir and Van Bulck, Jo and Minkin, Marina and  Genkin, Daniel and Kasikci, Baris and Piessens, Frank and Silberstein, Mark and Strackx, Raoul and Wenisch, Thomas F. and Yarom, Yuval},
+  journal={Technical report},
+  year={2018}
+}
+
+@INPROCEEDINGS{8418606,
+  author={M. {Zhao} and G. E. {Suh}},
+  booktitle={2018 IEEE Symposium on Security and Privacy (SP)}, 
+  title={FPGA-Based Remote Power Side-Channel Attacks}, 
+  year={2018},
   volume={},
   number={},
-  pages={},
-  year={2009},
-  publisher={Open Mobile Terminal Platform}
+  pages={229-244},
+  doi={10.1109/SP.2018.00049}}
+
+@techreport{armfundv8A,
+     title = {{Fundamentals of ARMv8-A}},
+     author = {{Arm Limited}},
+     group = {csg},
+     year = {2017},
+     institution = {{Arm Limited}},
+     month = {01}
+}
+
+@techreport{GlobalPlatform2018,
+     title = {{GlobalPlatform Technology TEE System Architecture}},
+     author = {GlobalPlatform Inc},
+     group = {csg},
+     year = {2018},
+     institution = {GlobalPlatform Inc},
+     month = {11}
+}
+
+@INPROCEEDINGS{8418604,
+  author={P. {Frigo} and C. {Giuffrida} and H. {Bos} and K. {Razavi}},
+  booktitle={2018 IEEE Symposium on Security and Privacy (SP)}, 
+  title={Grand Pwning Unit: Accelerating Microarchitectural Attacks with the GPU}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={195-210},
+  doi={10.1109/SP.2018.00022}}
+
+@article{Tsai2019,
+author = {Tsai, Chia Che and Porter, Donald E. and Vij, Mona},
+isbn = {9781931971386},
+journal = {Proceedings of the 2017 USENIX Annual Technical Conference, USENIX ATC 2017},
+pages = {645--658},
+title = {{Graphene-SGX: A practical library OS for unmodified applications on SGX}},
+year = {2019}
+}
+
+@article{Volos2007,
+author = {Volos, Stavros and Vaswani, Kapil and Bruno, Rodrigo},
+isbn = {9781939133083},
+journal = {Proceedings of the 13th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2018},
+pages = {681--696},
+title = {{Graviton: Trusted execution environments on GPUs}},
+year = {2007}
+}
+
+
+@article{Costan2016,
+author = {Costan, Victor and Devadas, Srinivas},
+isbn = {0250-8095 (Print)$\backslash$r0250-8095 (Linking)},
+issn = {02508095},
+journal = {International Association for Cryptologic Research ePrint Archive},
+pages = {1--118},
+pmid = {16210837},
+title = {{Intel SGX Explained}},
+url = {http://eprint.iacr.org/2016/086},
+year = {2016}
+}
+
+@article{keystone2019,
+  author    = {Dayeol Lee and David Kohlbrenner and Shweta Shinde and Dawn Song and Krste Asanovi{\'{c}}},
+  title     = {{Keystone: A Framework for Architecting TEEs}},
+  journal   = {CoRR},
+  volume    = {abs/1907.10119},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1907.10119},
+  archivePrefix = {arXiv},
+  eprint    = {1907.10119},
+  timestamp = {Thu, 01 Aug 2019 08:59:33 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1907-10119.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Giechaskiel2018,
+archivePrefix = {arXiv},
+arxivId = {1611.08882},
+author = {Giechaskiel, Ilias and Rasmussen, Kasper B. and Eguro, Ken},
+doi = {10.1145/3196494.3196518},
+eprint = {1611.08882},
+isbn = {9781450355766},
+journal = {ASIACCS 2018 - Proceedings of the 2018 ACM Asia Conference on Computer and Communications Security},
+keywords = {Crosstalk,FPGA covert channel,Information leakage,Long wire delay},
+pages = {15--27},
+title = {{Leaky wires: Information leakage and covert communication between FPGA long wires}},
+year = {2018}
+}
+
+@article{Gueron2016a,
+author = {Gueron, Shay},
+doi = {10.1109/MSP.2016.124},
+issn = {15584046},
+journal = {IEEE Security and Privacy},
+keywords = {cryptography,general-purpose processor,hardware,memory,privacy,security},
+number = {6},
+pages = {54--62},
+publisher = {IEEE},
+title = {{Memory encryption for general-purpose processors}},
+volume = {14},
+year = {2016}
+}
+
+@article{Bourgeat2019,
+archivePrefix = {arXiv},
+arxivId = {1812.09822},
+author = {Bourgeat, Thomas and Lebedev, Ilia and Wright, Andrew and Zhang, Sizhuo and Devadas, Arvind Srinivas},
+doi = {10.1145/3352460.3358310},
+eprint = {1812.09822},
+isbn = {9781450369381},
+issn = {10724451},
+journal = {Proceedings of the Annual International Symposium on Microarchitecture, MICRO},
+keywords = {Architectural isolation,Microarchitectural isolation,Secure processors},
+pages = {42--56},
+title = {{MI6: Secure enclaves in a speculative out-of-order processor}},
+year = {2019}
+}
+
+@techreport{Confidential2009,
+     title = {{OMTP: Advanced Trusted Environment: OMTP TR1}},
+     author = {{Open Mobile Terminal Platform}},
+     group = {csg},
+     year = {2009},
+     institution = {Open Mobile Terminal Platform},
+     month = {01}
+}
+
+@article{McGillion2015,
+archivePrefix = {arXiv},
+arxivId = {1506.07367},
+author = {McGillion, Brian and Dettenborn, Tanel and Nyman, Thomas and Asokan, N.},
+doi = {10.1109/Trustcom.2015.400},
+eprint = {1506.07367},
+isbn = {9781467379519},
+journal = {Proceedings - 14th IEEE International Conference on Trust, Security and Privacy in Computing and Communications, TrustCom 2015},
+keywords = {GlobalPlatform,Hardware security,Open source,Software development,Trusted Execution Environments,Usability},
+pages = {400--407},
+publisher = {IEEE},
+title = {{Open-TEE - An open virtual trusted execution environment}},
+volume = {1},
+year = {2015}
+}
+
+@inproceedings{lowtcb,
+author = {Shinde, Shweta and Le, Dat and Tople, Shruti and Saxena, Prateek},
+year = {2017},
+month = {01},
+pages = {},
+booktitle={Network and Distributed System Security Symposium},
+title = {Panoply: Low-TCB Linux Applications with SGX Enclaves},
+doi = {10.14722/ndss.2017.23500}
+}
+
+@article{Verger2019,
+author = {Verger, Fr{\'{e}}d{\'{e}}ric},
+doi = {10.1353/psg.2017.0149},
+isbn = {9781450324779},
+issn = {00294802},
+journal = {Nouvelle Revue Francaise},
+keywords = {fpgas,oblivious ram,path oram,secure processors},
+pages = {72--80},
+title = {{Phantom}},
+year = {2019}
+}
+
+@article{Regenscheid2018,
+author = {Regenscheid, Andrew},
+journal = {NIST Special Publication},
+keywords = {BIOS,Code signing,Firmware,Option ROM,Platform Firmware},
+title = {{Platform Firmware Resiliency Guidelines}},
+url = {http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf},
+year = {2018}
+}
+
+@article{Naghibijouybari2018,
+author = {Naghibijouybari, Hoda and Qian, Zhiyun and Neupane, Ajaya and Abu-Ghazaleh, Nael},
+doi = {10.1145/3243734.3243831},
+isbn = {9781450356930},
+issn = {15437221},
+journal = {Proceedings of the ACM Conference on Computer and Communications Security},
+keywords = {GPU,Keystroke timing attack,Side channel,Website fingerprinting},
+pages = {2139--2153},
+title = {{Rendered insecure: GPU side channel attacks are practical}},
+year = {2018}
+}
+@article{Lebedev2019,
+archivePrefix = {arXiv},
+arxivId = {1812.10605},
+author = {Lebedev, Ilia and Hogan, Kyle and Drean, Jules and Kohlbrenner, David and Lee, Dayeol and Asanovi{\'{c}}, Krste and Song, Dawn and Devadas, Srinivas},
+doi = {10.23919/DATE.2019.8715182},
+eprint = {1812.10605},
+isbn = {9783981926323},
+journal = {Proceedings of the 2019 Design, Automation and Test in Europe Conference and Exhibition, DATE 2019},
+keywords = {enclave,secure processor,trusted execution},
+pages = {1142--1147},
+title = {{Sanctorum: A lightweight security monitor for secure enclaves}},
+year = {2019}
+}
+@article{Brasser2019,
+author = {Brasser, Ferdinand and Gens, David and Jauernig, Patrick and Sadeghi, Ahmad-Reza and Stapf, Emmanuel},
+doi = {10.14722/ndss.2019.23448},
+isbn = {189156255X},
+number = {February},
+title = {{SANCTUARY: ARMing TrustZone with User-space Enclaves}},
+journal = {26th Annual Network and Distributed System Security Symposium},
+year = {2019}
+}
+
+@article{Costan2016a,
+author = {Costan, Victor and Lebedev, Ilia and Devadas, Srinivas},
+isbn = {978-1-931971-32-4},
+journal = {Usenix},
+pages = {857--874},
+title = {{Sanctum : Minimal Hardware Extensions for Strong Software Isolation This paper is included in the Proceedings of the Sanctum : Minimal Hardware Extensions for Strong Software Isolation}},
+url = {https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/costan},
+volume = {25},
+year = {2016}
+}
+
+@INPROCEEDINGS{8429295,
+  author={I. {Lebedev} and K. {Hogan} and S. {Devadas}},
+  booktitle={2018 IEEE 31st Computer Security Foundations Symposium (CSF)}, 
+  title={Invited Paper: Secure Boot and Remote Attestation in the Sanctum Processor}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={46-60},
+  doi={10.1109/CSF.2018.00011}}
+
+@article{Brenner2016,
+author = {Brenner, Stefan and Wulf, Colin and Goltzsche, David and Weichbrodt, Nico and Lorenz, Matthias and Fetzer, Christof and Pietzuch, Peter and Kapitza, R{\"{u}}diger},
+doi = {10.1145/2988336.2988350},
+isbn = {9781450343008},
+journal = {Proceedings of the 17th International Middleware Conference, Middleware 2016},
+keywords = {Apache ZooKeeper,Cloud computing,Intel SGX},
+title = {{SecureKeeper: Confidential ZooKeeper using Intel SGX}},
+year = {2016}
+}
+
+@article{Nehal2019,
+author = {Nehal, Arshad and Ahlawat, Priyanka},
+doi = {10.1109/ICECA.2019.8822040},
+isbn = {9781728101675},
+journal = {Proceedings of the 3rd International Conference on Electronics and Communication and Aerospace Technology, ICECA 2019},
+keywords = {Hardware Security,IoT,IoT Social Networks,OPTEE,Security},
+pages = {1441--1444},
+publisher = {IEEE},
+title = {{Securing IoT applications with OP-TEE from hardware level OS}},
+year = {2019}
+}
+
+@techreport{Coombs2015,
+     title = {{Securing the Future of Authentication with ARM TrustZone-based Trusted Execution Environment and Fast Identity Online ( FIDO )}},
+     author = {Coombs, Rob},
+     group = {csg},
+     year = {2015},
+     institution = {Arm Inc},
+     month = {01}
+}
+
+@article{Aumasson2016,
+author = {Aumasson, Jp and Merino, Luis},
+issn = {0886-9383},
+journal = {Black Hat 2016},
+pages = {1--10},
+title = {{SGX Secure Enclaves in Practice: Security and Crypto Review}},
+url = {https://github.com/kudelskisecurity/sgx-reencrypt.},
+year = {2016}
+}
+
+@article{Dong2018,
+author = {Dong, Xiaowan and Shen, Zhuojia and Criswell, John and Cox, Alan L. and Dwarkadas, Sandhya},
+isbn = {9781939133045},
+journal = {Proceedings of the 27th USENIX Security Symposium},
+pages = {1441--1458},
+title = {{Shielding software from privileged side-channel attacks}},
+year = {2018}
+}
+
+@article{Dong2018a,
+author = {Dong, Xiaowan and Shen, Zhuojia and Criswell, John and Cox, Alan and Dwarkadas, Sandhya},
+doi = {10.1145/3214292.3214297},
+isbn = {9781450365000},
+journal = {ACM International Conference Proceeding Series},
+keywords = {Compiler-based virtual machines,Operating systems security,Secure computer architectures,Speculation-based side channels},
+title = {{Spectres, virtual ghosts, and hardware support}},
+year = {2018}
+}
+
+@article{Spyropoulos2009,
+author = {Spyropoulos, Ioannis and Zeidler, James R.},
+doi = {10.1109/TVT.2008.928108},
+issn = {00189545},
+journal = {IEEE Transactions on Vehicular Technology},
+keywords = {Antenna arrays,Code-division multiple access (CDMA),Land mobile radio cellular systems,Resource management,Signal detection,Time-division duplexing (TDD)},
+number = {2},
+pages = {744--759},
+title = {{Supporting asymmetric traffic in a TDD/CDMA cellular network via interference-aware dynamic channel allocation and space-time LMMSE joint detection}},
+volume = {58},
+year = {2009}
+}
+
+@techreport{ArmLimited2019,
+     title = {{The Arm Exception Model}},
+     author = {{Arm Limited}},
+     group = {csg},
+     year = {2019},
+     institution = {{Arm Limited}},
+     month = {01}
+}
+
+@article{UnprivIsa2019,
+author = {Waterman, Andrew and Asanovi{\'{c}}, Krste},
+pages = {238},
+title = {{The RISC-V Instruction Set Manual, Volume I: User-Level ISA, Document Version 20191213}},
+url = {https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf},
+volume = {I},
+journal = {RISC-V ISA},
+year = {2019}
+}
+
+@article{PrivIsa2019,
+author = {Waterman, Andrew and Asanovi{\'{c}}, Krste},
+pages = {135},
+title = {{The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 20190608}},
+url = {https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMFDQC-and-Priv-v1.11/riscv-privileged-20190608.pdf},
+volume = {II},
+journal = {RISC-V ISA},
+year = {2019}
+}
+
+@article{Bar-El2006,
+author = {Bar-El, Hagai and Choukri, Hamid and Naccache, David and Tunstall, Michael and Whelan, Claire},
+doi = {10.1109/JPROC.2005.862424},
+issn = {00189219},
+journal = {Proceedings of the IEEE},
+keywords = {Fault attacks,Glitch attacks,Side-channel attacks,Smart cards},
+number = {2},
+pages = {370--382},
+title = {{The sorcerer's apprentice guide to fault attacks}},
+volume = {94},
+year = {2006}
+}
+
+@article{timewarp,
+author = {Martin, Robert and Demme, John and Sethumadhavan, Simha},
+doi = {10.1109/ISCA.2012.6237011},
+isbn = {9781467304757},
+issn = {10636897},
+journal = {Proceedings - International Symposium on Computer Architecture},
+pages = {118--129},
+title = {{TimeWarp: Rethinking timekeeping and performance monitoring mechanisms to mitigate side-channel attacks}},
+year = {2012}
+}
+
+@techreport{Edition2018,
+     title = {{Trusted Base System Architecture, Client}},
+     author = {{Arm Limited}},
+     group = {csg},
+     year = {2019},
+     institution = {{Arm Limited}},
+     month = {01}
+}
+
+@phdthesis{Kohlbrenner2018,
+author = {Kohlbrenner, David},
+advisor = {Shacham, Hovav},
+title = {Trusted Systems for Uncertain Times},
+year = {2018},
+publisher = {UC San Diego},
+school = {UC San Diego},
+address = {San Diego, CA, USA}
+}
+
+@INPROCEEDINGS{6699066,
+  author={S. {Chiricescu} and A. {DeHon} and D. {Demange} and S. {Iyer} and A. {Kliger} and G. {Morrisett} and B. C. {Pierce} and H. {Reubenstein} and J. M. {Smith} and G. T. {Sullivan} and A. {Thomas} and J. {Tov} and C. M. {White} and D. {Wittenberg}},
+  booktitle={2013 IEEE International Conference on Technologies for Homeland Security (HST)}, 
+  title={{SAFE: A clean-slate architecture for secure systems}}, 
+  year={2013},
+  volume={},
+  number={},
+  pages={570-576},
+  doi={10.1109/THS.2013.6699066}}
+  
+  @INPROCEEDINGS{teeWhatIsIt,
+  author={M. Sabt and M. Achemlal and A. Bouabdallah},
+  booktitle={2015 IEEE Trustcom/BigDataSE/ISPA}, 
+  title={Trusted Execution Environment: What It is, and What It is Not}, 
+  year={2015},
+  volume={1},
+  number={},
+  pages={57-64},
+  doi={10.1109/Trustcom.2015.357}}
+  
+  @INPROCEEDINGS{TrustZoneExplained,
+  author={B. {Ngabonziza} and D. {Martin} and A. {Bailey} and H. {Cho} and S. {Martin}},
+  booktitle={2016 IEEE 2nd International Conference on Collaboration and Internet Computing (CIC)}, 
+  title={TrustZone Explained: Architectural Features and Use Cases}, 
+  year={2016},
+  volume={},
+  number={},
+  pages={445-451},
+  doi={10.1109/CIC.2016.065}}
+  
+  @techreport{intelMET,
+     title = {Intel Architecture Memory Encryption Technologies Specification},
+     author = {{Intel Corporation}},
+     year = {2019},
+     institution = {{Intel Corporation}},
+     month = {01}
 }
 
 @online{WAC,
   author = {Sarah Perez},
-  title = {WAC Whacked: Telecom-Backed Alliance Merges Into GSMA, Assets Acquired By API Management Service Apigee},
+  title = {{WAC Whacked: Telecom-Backed Alliance Merges Into GSMA, Assets Acquired By API Management Service Apigee}},
   year = 2012,
   url = {https://techcrunch.com/2012/07/17/wac-whacked-telecom-backed-alliance-merges-into-gsma-assets-acquired-by-api-management-service-apigee/},
   urldate = {2015-05-21}
 }
 
-@misc{intel-sgx-explained,
-  author = {Victor Costan and Srinivas Devadas},
-  title = {{Intel SGX Explained}},
-  howpublished = {Cryptology ePrint Archive, Report 2016/086},
-  year = {2016},
-  month = jan,
-  note = {\url{http://eprint.iacr.org/2016/086}},
+@techreport{ArmBuildingSS,
+     title = {{Arm Security Technology Building a Secure System using TrustZone Technology}},
+     author = {{Arm Limited}},
+     group = {csg},
+     year = {2009},
+     institution = {{Arm Limited}},
+     month = {01}
 }
 
-@misc{ArmWhitepaper,
-  author    = {Arm Limited},
-  title     = {Arm Security Technology Building a Secure System using TrustZone Technology},
-  year      = {2009},
-  timestamp = {2020-09-20},
-  url       = {https://developer.arm.com/documentation/genc009492/latest},
-}
-
-@misc{ArmV8Fund,
-  author    = { Arm Limited},
-  title     = {Fundamentals of ARMv8-A},
-  year      = {2017},
-  timestamp = {2020-09-20},
-  url       = {https://developer.arm.com/documentation/den0024/latest},
-}
-
-@misc{ArmSystemArch,
-  author    = { Arm Limited or its affiliates},
-  title     = {Trusted Base System Architecture CLIENT (TBSA-CLIENT) ARMv8-A},
-  year      = {2018},
-  timestamp = {2020-09-20},
-  url       = {https://developer.arm.com/documentation/den0021/latest},
-}
-
-@misc{ArmTrustedBoot,
-  author    = {Arm Limited, Architecture and Technology Group},
-  title     = {Trusted Board Boot Requirements CLIENT (TBBR-CLIENT) ARMv8-A},
-  year      = {2018},
-  timestamp = {2020-09-20},
-  url       = {https://developer.arm.com/documentation/den0006/latest},
+@techreport{ArmTrustedBoot,
+     title = {{Trusted Board Boot Requirements CLIENT (TBBR-CLIENT) ARMv8-A}},
+     author = {{Arm Limited, Architecture and Technology Group}},
+     group = {csg},
+     year = {2018},
+     institution = {{Arm Limited}},
+     month = {01}
 }

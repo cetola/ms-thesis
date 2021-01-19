@@ -6,7 +6,7 @@
 \usepackage{epstopdf}
 \usepackage[acronym,toc]{glossaries}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,fit,positioning,matrix,backgrounds,colorbrewer,colorbrewer}
+\usetikzlibrary{shapes,arrows,chains,fit,positioning,matrix,backgrounds,colorbrewer,colorbrewer}
 \usepackage{makecell}
 \usepackage{array}
 
@@ -24,13 +24,9 @@
 \input{acronyms.tex}
 
 \begin{document}
-\title{An Overview of Trusted Execution Environments with a Deep Dive into RISC-V Physical Memory Protection and Hopefully a Better Title}
+\title{A Comparative Analysis of Trusted Execution Environments}
 \subtitle{}
 \author{Stephano Cetola}
-\principaladviser{Prof. John Aken}
-\firstreader{Prof. Marek A. Perkowski}
-\secondreader{Prof. Eric Wan}
-\deptchair{Prof. James McNames}
 \submitdate{\today}
 \submityear{2021}
 
@@ -58,10 +54,43 @@ I would like to thank...
 %==============================================================================
 % Chapters
 %==============================================================================
+
+\pagenumbering{arabic}
+
 \glsresetall
 \chapter{Introduction}
-\pagenumbering{arabic}
-\input{introduction.tex}
+\label{chap:intro}
+\input{01 - introduction.tex}
+
+\glsresetall
+\chapter{Background}
+\label{chap:bg}
+\input{02 - background.tex}
+
+\glsresetall
+\chapter{Intel SGX}
+\label{chap:sgx}
+\input{03 - sgx.tex}
+
+\glsresetall
+\chapter{Arm TrustZone}
+\label{chap:trustzone}
+\input{04 - trustzone.tex}
+
+\glsresetall
+\chapter{RISC-V PMP}
+\label{chap:pmp}
+\input{05 - pmp.tex}
+
+\glsresetall
+\chapter{Trusted Execution Environment Comparisons}
+\label{chap:comp}
+\input{06 - comparison}
+
+\glsresetall
+\chapter{Conclusion}
+\label{chap:fini}
+\input{07 - conclusion}
 
 %==============================================================================
 % Bibliography

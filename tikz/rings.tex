@@ -1,0 +1,29 @@
+
+\begin{tikzpicture}
+
+\draw[SpringGreen,fill=SpringGreen] (0,0) circle (120pt);
+\draw[Yellow,fill=Yellow] (0,0) circle (90pt);
+\draw[YellowOrange!80!,fill=YellowOrange!80!] (0,0) circle (60pt);
+\draw[Red!80!,fill=Red!80!] (0,0) circle (30pt);
+
+\node at (0,3.5) {Ring 3};
+\node at (0,2.5) {Ring 2};
+\node at (0,1.5) {Ring 1};
+\node at (0,.5) {Ring 0};
+\node at (0,0) {Kernel};
+\node at (0,-1.5) {Hypervisor};
+\node at (0,-2.5) {Device Drivers};
+\node at (0,-3.65) {Applications};
+
+\node at (6.5,3.5) {Least Privileged};
+
+\draw[SpringGreen,fill=SpringGreen] (6,2) rectangle (7,3);
+\draw[Yellow,fill=Yellow] (6,1) rectangle (7,2);
+\draw[YellowOrange!80!,fill=YellowOrange!80!] (6,0) rectangle (7,1);
+\draw[Red!80!,fill=Red!80!] (6,-1) rectangle (7,0);
+
+\node at (6.5,-1.65) {Most Privileged};
+
+
+
+\end{tikzpicture}
