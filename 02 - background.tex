@@ -1,11 +1,11 @@
 \section{A Brief History of TEEs}
-\glspl{tee} were first defined by the Open Mobile Terminal Platform and ratified in 2009 \cite{Confidential2009}. The OMTP standard was transferred to the Wholesale Applications Community (WAC) in 2010 and in July 2012 WAC itself was closed, with the OMTP standards being transferred to The GSM Association (originally Groupe Spécial Mobile)\cite{WAC}. In this paper we will discuss the two most prevalent implementations of this standard for the x86-64 and AArch64 architectures, as well as a completely open source hardware and software implementation of a TEE for the RISC-V architecture.
+\glspl{tee} were first defined by the \gls{omtp} and ratified in 2009 \cite{Confidential2009} specifically for ``Handset manufacturers''. The \gls{omtp} standard was transferred to the Wholesale Applications Community (WAC) in 2010 and in July 2012 WAC itself was closed, with the \gls{omtp} standards being transferred to The GSM Association (originally Groupe Spécial Mobile)\cite{WAC}. In this paper we will discuss the two most prevalent implementations of this standard for the x86-64 and AArch64 architectures, as well as a completely open source hardware and software implementation of a TEE for the RISC-V architecture.
 
-\begin{figure}[htbp]
-\centering
-\input{tikz/security-timeline}
-\caption[Hardware Security Timeline]{\textbf{Stuff happens, and how!}}
-\label{fig:sec-timeline}
-\end{figure}
+We're going to talk about \gls{ime}, \gls{sgx}, \gls{soc}, \gls{smm}, \gls{aes}, \gls{vtx}, \gls{spmp}, \gls{epmp}, \gls{iopmp}, and \gls{pmp}.
+
+
+\input{tables/security-timeline}
+
+ We're going to cover how each of these technologies contributed to \gls{tee} development, how they effect their use, why they lead to the development of \glspl{tee}, and how they fall short of providing the security of a \gls{tee}. Moreover, we should cover the fact that attacks have already been seen in \glspl{tee}, and that mitigating those attacks is required. 
 
 \section{From Handsets to IoT to Cloud}
