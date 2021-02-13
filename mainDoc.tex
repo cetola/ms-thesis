@@ -23,8 +23,9 @@
     version={4.0},
 ]{doclicense}
 
-\makenoidxglossaries
+\makeglossaries
 \input{acronyms.tex}
+\input{glossary.tex}
 
 \newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
@@ -38,6 +39,7 @@
 \copyrightfalse
 \figurespagetrue
 \tablespagetrue
+\beforepreface
 \null\vfill
 \begin{center}
         \copyright\ 2020 Stephano Cetola \\
@@ -46,15 +48,21 @@
         \doclicenseImage
 \end{center}
 \vfill\newpage
- 
-\beforepreface
-\prefacesection{Preface}
+
+\prefacesection{Abstract}
 This thesis tells you all you need to know about...
+\prefacesection{Dedication}
+I would like to dedicate this thesis...
 \prefacesection{Acknowledgments}
 I would like to thank...
 \afterpreface
 
-\printnoidxglossary[type=\acronymtype]
+\printglossary[type=\acronymtype]
+\printglossary
+
+\prefacesection{Preface}
+I'd like to start by saying
+
 
 %==============================================================================
 % Chapters
