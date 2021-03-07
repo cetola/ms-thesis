@@ -8,7 +8,6 @@
   numarrv/.style={draw=none,anchor=center,xshift=.5cm,pos=0.5}
 ]
 	% normal world
-	\node (12) [cb] at (0, 2) {from BL2};
 	\node (3) [fg] at (0,0) {BL33 \textcolor{ForestGreen}\faKey\\NW \faKey};
     \node (10) [below=of 3, fg] {BL33 \faHashtag\\BL33 \faKey};
     \node (11) [below=of 10, fg] {BL33};
@@ -25,7 +24,22 @@
 	\node (0) [left=of 1, ap] {RoT \textcolor{ForestGreen}\faKey};
 	\node (4) [below=of 0, ap] {Secure\\ROM\\BL1};
 	\node (5) [below=of 4, ap] {PoR};
-	\node (13) [below=of 5, ap] {Key};
+	
+	% Key
+	\node (13) [draw=none,below=of 5] {\textbf{Key}
+	\\\noindent\rule{5cm}{0.4pt}
+	\\[1mm]\faHashtag\;\;SHA256 Hash
+	\\[1mm]\textcolor{ForestGreen}\faKey\;\;Public Key
+	\\[1mm]\faKey\;\;Private Key
+	\\[1mm]\fcolorbox{black}{Apricot!10!white}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\;\;Implicitly Trusted
+	\\[1mm]\fcolorbox{black}{CornflowerBlue!10!white}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\;\;Secure World
+	\\[1mm]\fcolorbox{black}{ForestGreen!10!white}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\;\;Normal World};
+	
+	% there is probably a better way to have an arrow followed by text here
+	\path [arrow,line width=0.5mm,RoyalBlue] ([xshift=-2.5cm]13.south) -- ([xshift=-2cm]13.south);
+	\node (14) [draw=none] [xshift=1mm] at (13.south) {Execution Boot Path};
+	\path [arrow, latex'-latex'] ([xshift=-2.6cm]14.south) -- ([xshift=-2.1cm]14.south);
+	\node (15) [draw=none] [xshift=-8.5mm] at (14.south) {Hash Check};
 	
 	% arrows
 	\path [arrow,line width=0.5mm,RoyalBlue] (9.east) -- node[numarr, yshift=-.5cm] {13} (11.south);
@@ -33,9 +47,7 @@
 	\path [arrow, latex'-latex'] (10) -- node[numarrv] {11} (11);
 	\path [arrow] (3) -- node[numarrv] {10} (10);
 	\path [arrow] (2) -- node[numarr] {9} (3);
-	\path [arrow] (12) -- node[numarrv] {9} (3);
 	\path [arrow, latex'-latex'] (8) -- node[numarrv] {8} (9);
-	\path [arrow] (6) -- node[numarr] {6} (7);
 	\path [arrow] (7) -- node[numarrv] {7} (8);
 	\path [arrow] (2) -- node[numarrv] {6} (7);
 	\path [arrow, latex'-latex'] (0)  -- node[numarr] {1} (1);
