@@ -1,0 +1,48 @@
+\begin{tikzpicture}[
+  nodes={draw,align=left,inner sep=.4cm},
+  arrow/.style={draw, -latex'},
+  cb/.style={fill=CornflowerBlue!10!white},
+  fg/.style={fill=ForestGreen!10!white},
+  ap/.style={fill=Apricot!10!white},
+  numarr/.style={draw=none,anchor=center,yshift=-.25cm,pos=0.5},
+  numarrv/.style={draw=none,anchor=center,xshift=.5cm,pos=0.5}
+]
+	% normal world
+	\node (12) [cb] at (0, 2) {from BL2};
+	\node (3) [fg] at (0,0) {BL33 \textcolor{ForestGreen}\faKey\\NW \faKey};
+    \node (10) [below=of 3, fg] {BL33 \faHashtag\\BL33 \faKey};
+    \node (11) [below=of 10, fg] {BL33};
+	
+	% secure world images
+    \node (2) [left=of 3, cb] {TW \textcolor{ForestGreen}\faKey\:NW \textcolor{ForestGreen}\faKey\\RoT \faKey};
+    \node (7) [below=of 2, cb] {BL3x \textcolor{ForestGreen}\faKey\\TW \faKey};
+    \node (8) [below=of 7, cb] {BL3x \faHashtag\\BL3x \faKey};
+    \node (9) [below=of 8, cb] {BL3x};
+    \node (1) [left=of 2, cb] {BL2 \faHashtag\\RoT \faKey};
+    \node (6) [below=of 1, cb, xshift=1cm] {BL2};
+    
+    % implicitly trusted
+	\node (0) [left=of 1, ap] {RoT \textcolor{ForestGreen}\faKey};
+	\node (4) [below=of 0, ap] {Secure\\ROM\\BL1};
+	\node (5) [below=of 4, ap] {PoR};
+	\node (13) [below=of 5, ap] {Key};
+	
+	% arrows
+	\path [arrow,line width=0.5mm,RoyalBlue] (9.east) -- node[numarr, yshift=-.5cm] {13} (11.south);
+	\path [arrow,line width=0.5mm,RoyalBlue] ([xshift=2mm]6.south) -- node[numarr, xshift=-.5cm] {12} (9.west);
+	\path [arrow, latex'-latex'] (10) -- node[numarrv] {11} (11);
+	\path [arrow] (3) -- node[numarrv] {10} (10);
+	\path [arrow] (2) -- node[numarr] {9} (3);
+	\path [arrow] (12) -- node[numarrv] {9} (3);
+	\path [arrow, latex'-latex'] (8) -- node[numarrv] {8} (9);
+	\path [arrow] (6) -- node[numarr] {6} (7);
+	\path [arrow] (7) -- node[numarrv] {7} (8);
+	\path [arrow] (2) -- node[numarrv] {6} (7);
+	\path [arrow, latex'-latex'] (0)  -- node[numarr] {1} (1);
+	\path [arrow, latex'-latex'] (0.north) to[bend left] node[numarr, yshift=.5cm] {5} (2.north);
+	\path [arrow] (5) -- (4);
+	\path [arrow] (4) edge[bend right] node[numarr, yshift=.5cm] {2} (1.south);
+	\path [arrow,line width=0.5mm,RoyalBlue] (4) edge[bend right] node[numarr, yshift=.5cm] {4} (6.south);
+	\path [arrow, latex'-latex'] (1) -- node[numarr, xshift=-.3cm] {3} (6);
+
+\end{tikzpicture}
