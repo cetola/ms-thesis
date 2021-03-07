@@ -144,9 +144,7 @@
 % Abstract Page
 % ==========================================================================================
 
-% Making a separate file, so that maintaining it and editing it is simpler --Saurabh [Mar 14,2008]
-
-\input{abstractDef}
+% Rules here are simple: center the title and start number this page "i".
 
 % ==========================================================================================
 % Title Page
@@ -217,14 +215,14 @@ by
 %      or
 % Approval Page
 % ==========================================================================================
-\input{signature}   % Making a separate file, so that maintaining it and editing it is simpler --Saurabh [Mar 14,2008]
+
+% this does not seem to be a thing anymore
 
 % ==========================================================================================
 % Define Preface Macros
 % ==========================================================================================
 \def\beforepreface{
         \pagestyle{plain}
-        %\signaturepage
         \titlepage
         \ifcopyright\ifthesiscopyright\thesiscopyrightpage\else\tradcopyrightpage\fi\fi
         \cleardoublepage}

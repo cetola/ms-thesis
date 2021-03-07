@@ -26,8 +26,8 @@
 ]{doclicense}
 
 \makeglossaries
-\input{acronyms.tex}
-\input{glossary.tex}
+\input{chap/acronyms.tex}
+\input{chap/glossary.tex}
 
 \newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
 
@@ -78,41 +78,41 @@ I'd like to start by saying
 \glsresetall
 \chapter{Introduction}
 \label{chap:intro}
-\input{01 - introduction.tex}
+\input{chap/01 - introduction.tex}
 
 \glsresetall
 \chapter{Background}
 \label{chap:bg}
-\input{02 - background.tex}
+\input{chap/02 - background.tex}
 
 \glsresetall
 \chapter{Intel SGX}
 \label{chap:sgx}
-\input{03 - sgx.tex}
+\input{chap/03 - sgx.tex}
 
 \glsresetall
 \chapter{Arm TrustZone}
 \label{chap:trustzone}
-\input{04 - trustzone.tex}
+\input{chap/04 - trustzone.tex}
 
 \glsresetall
 \chapter{RISC-V PMP}
 \label{chap:pmp}
-\input{05 - pmp.tex}
+\input{chap/05 - pmp.tex}
 
 \glsresetall
 \chapter{Trusted Execution Environment Comparisons}
 \label{chap:comp}
-\input{06 - comparison}
+\input{chap/06 - comparison}
 
 \glsresetall
 \chapter{Conclusion}
 \label{chap:fini}
-\input{07 - conclusion}
+\input{chap/07 - conclusion}
 
 %==============================================================================
 % Bibliography
 %==============================================================================
 \bibliographystyle{IEEEtranS}
-\bibliography{mybib}
+\bibliography{chap/mybib}
 \end{document}
