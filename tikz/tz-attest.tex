@@ -1,0 +1,36 @@
+\makebox[\linewidth]{
+\begin{tikzpicture}[scale=0.8, transform shape,nodes={text width=3cm, align=center, minimum height=1cm}, small/.style={font=\small}]
+
+% nodes
+\node [draw,outer sep=0,inner sep=1] (v2) at (-9,8) {TrustZone driver};
+\node [draw] (v8) at (-3.5,10.5) {\gls{ta} 1 \textcolor{ForestGreen}\faKey};
+\node [draw] (v7) at (.5,10.5) {\gls{ta} 2};
+\node [draw] (v7) at (4.5,10.5) {\gls{ta} 3};
+\node [draw] (v6) at (-3.5,8) {TEE Core \textcolor{ForestGreen}\faKey};
+\node [draw] (v5) at (4.5,8) {TEE Libs};
+\node [draw] (v3) at (-3.5,6) {\gls{tfa} Secure Monitor \textcolor{ForestGreen}\faKey};
+\node [] at (-9,11.5) {Normal World};
+\node [] at (.5,11.5) {Secure World};
+\node [] at (-9,9) {Linux Kernel};
+\node [] at (.5,9) {OP-TEE};
+\node [small] at (-12,9.75) {User};
+\node [small] at (-12,9.25) {Privileged};
+\node [small, minimum height=0] (v9) at (-3.5,4) {EL3 Exception};
+
+% edges
+
+\draw [latex'-latex'] (v2) |- (v3.west) node [near end, small, above, minimum height=0] {SMC};
+\draw [latex'-latex'] (v8) -- (v6);
+\draw [latex'-latex'] (v3) -- (v6);
+
+% fits
+\begin{scope}[on background layer]
+  \draw [dotted] (-11,12) rectangle (-7,5);
+  \draw [dotted, fill=CornflowerBlue!10!white] (-6,12) rectangle (6.5,5);
+\end{scope}
+\draw [] (-10.75,9.25) rectangle (-7.25,7.25);
+\draw [] (-5.75,9.25) rectangle (6.25,7.25);
+\draw [dashed] (-13,9.5) -- (7,9.5);
+\draw [-latex'] (v9) -- (v3);
+\end{tikzpicture}
+}
