@@ -39,7 +39,7 @@ This Secure Monitor runs in EL3 and is responsible for loading both the Secure O
 \begin{figure}[ht]
 \makebox[\textwidth][c]{\input{tikz/tz-overview}
 }\caption[Arm TrustZone Example of Normal and Secure World]{\textbf{Secure World implementation using ARM TrustZone.}
-The \gls{soc} boots into the Secure World and a monitor is registered which acts as the interface between the Secure and Normal Worlds.
+The \gls{soc} boots into the Secure World and a monitor is registered which acts as the interface between the ``secure'' and ``normal'' worlds. All EL3 exceptions are caught by the secure montior, and there is a special EL3 exception called a ``secure monitor call'' which is used to switch the processor between the two worlds. Figure recreated and modified from the original \cite{TeschkeSGX}.
 \label{fig:tz-overview}}
 \end{figure}
 
@@ -66,11 +66,11 @@ Since loading a \gls{ta} from the \gls{ree} file system creates an inherently la
 
 \begin{figure}[ht]
 \makebox[\textwidth][c]{\input{tikz/tz-attest}
-}\caption[OP-TEE Chain of Trust]{\textbf{some bold text.}
+}\caption[OP-TEE Chain of Trust]{\textbf{The OP-TEE Chain of Trust builds off the secure boot chain of trust. Here, we see}
 Some not-so-bold text.
 \label{fig:tz-attest}}
 \end{figure}
 
-\gls{optee} secure storage follows the GlobalPlatform \gls{tee} Core API document \cite{GPD5} defining ``Trusted Storage API for Data and Keys'' in section 5. The details of \gls{optee} secure storage are beyond the scope of this thesis. It is enough for us to understand that regardless of where the applications are loaded from, they are signed with a key from the trusted OS. \gls{optee} \glsreset{ta}\glspl{ta} are signed with the pre-generated 2048-bit RSA private key provided by the trusted OS developer. These keys should be stored in a hardware security module like a \gls{tpm}, however the security model for any given \gls{ta} is left up to the trusted OS developer. Currently, \gls{optee} only supports one private key per trusted OS. As such, each \gls{ta} will be signed with the same key. This step completes the \gls{chain of trust} and we are able to assure that each step in loading the application, from PoR to loading the application into memory, has occurred in a way which preserves the integrity and confidentiality of the data as well as the integrity of the code.
+\gls{optee} secure storage follows the GlobalPlatform \gls{tee} Core API document \cite{GPD5} defining ``Trusted Storage API for Data and Keys'' in section 5. The details of \gls{optee} secure storage are beyond the scope of this thesis. It is enough for us to understand that regardless of where the applications are loaded from, they are signed with a key from the trusted OS. \gls{optee} \glsreset{ta}\glspl{ta} are signed with the pre-generated 2048-bit RSA private key provided by the trusted OS developer as shown in Figure \ref{fig:tz-attest}. These keys should be stored in a hardware security module like a \gls{tpm}, however the security model for any given \gls{ta} is left up to the trusted OS developer. Currently, \gls{optee} only supports one private key per trusted OS. As such, each \gls{ta} will be signed with the same key. This step completes the \gls{chain of trust} and we are able to assure that each step in loading the application, from PoR to loading the application into memory, has occurred in a way which preserves the integrity and confidentiality of the data as well as the integrity of the code.
 
-
+In this chapter, we have shown how Arm has designed a framework on which hardware manufacturers and system vendors can hang an implementation of a \gls{tee}. Unlike with Intel SGX, and perhaps core to Arm's business model, many of the implementation details are left to the manufacturer. This allows for great flexibility at the cost of engineering resources and time. Next, we will explore RISC-V \gls{pmp}, and describe a system which is open source from the ISA through to user space applications. As we will show, this allows for even greater flexibility than Arm TrustZone, though again at a greater cost.
