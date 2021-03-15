@@ -66,8 +66,7 @@ Since loading a \gls{ta} from the \gls{ree} file system creates an inherently la
 
 \begin{figure}[ht]
 \makebox[\textwidth][c]{\input{tikz/tz-attest}
-}\caption[OP-TEE Chain of Trust]{\textbf{The OP-TEE Chain of Trust builds off the secure boot chain of trust. Here, we see}
-Some not-so-bold text.
+}\caption[OP-TEE Chain of Trust]{\textbf{The OP-TEE Chain of Trust builds off the secure boot chain of trust.} From Figure \ref{fig:tz-measure}, we loaded the secure monitor into \blto and our secure OS, \gls{optee}, into \blttw. With that \gls{chain of trust} complete, we can now use the keys present in \gls{optee} to load trusted applications into our \gls{tee}. The \gls{tee} functions and libraries actually live in the same area and are separated here only for convenience. Parts of \gls{optee} may run in EL3 (user level privilege), however that is beyond the scope of this diagram.
 \label{fig:tz-attest}}
 \end{figure}
 
