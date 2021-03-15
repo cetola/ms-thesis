@@ -39,7 +39,7 @@ Unlike in the \gls{omtp} standard, GlobalPlatform first introduces the concept o
 \begin{figure}[htbp]
 \centering
 \input{tikz/gpd-tee}
-\caption[GlobalPlatforms Typical Chipset Architecture]{\textbf{Depicts the board level chipset architecture of a typical mobile device.} Recreated and simplified from Figure 2-1 on page 15 of the GlobalPlatform Technology TEE System Architecture Version 1.2. \cite{GlobalPlatform2018}}
+\caption[GlobalPlatforms Typical Chipset Architecture]{\textbf{The board level chipset architecture of a typical mobile device.} The concept of an embedded or removable secure element allows for devices like a \gls{tpm} which may hold secure data but will not host the \gls{tee}. A \gls{tee} may reside on the SoC itself as with Arm TrustZone. However, it is possible to physically separate the \gls{tee} from the SoC and still be compliant with the GlobalPlatform model. This figure was recreated and simplified from Figure 2-1 on page 15 of the GlobalPlatform Technology TEE System Architecture Version 1.2. \cite{GlobalPlatform2018}.}
 \label{fig:gpd-tee}
 \end{figure}
 

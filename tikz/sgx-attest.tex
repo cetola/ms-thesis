@@ -1,0 +1,32 @@
+\makebox[\linewidth]{
+\begin{tikzpicture}[scale=0.8, transform shape,
+nodes={text width=3cm, align=center, minimum height=2.5cm},
+numarr/.style={draw=none,anchor=center,yshift=.25cm,pos=0.5},
+numarrv/.style={draw=none,anchor=center,xshift=.25cm,pos=0.5},
+small/.style={font=\small}]
+
+% nodes
+\node [draw] (v1) at (-9,9) {Challenger};
+\node [draw] (v5) at (-9,5) {Attestation Verification};
+\node [draw] (v2) at (-3.5,9) {Application};
+\node [draw] (v3) at (3.5,9) {\textbf{Application Enclave}\\User Data \faKey};
+\node [draw] (v4) at (-3.5,5) {\textbf{Quoting Enclave}\\ Attestation Key \faKey};
+\node [] at (-9,11.5) {Remote Platform};
+\node [] at (.5,11.5) {User Platform};
+
+% edges
+\draw [-latex'] ([yshift=.5cm]v1.east) -- ([yshift=.5cm]v2.west) node [numarr] {1};
+\draw [-latex'] ([yshift=-.5cm]v2.west) -- ([yshift=-.5cm]v1.east) node [numarr] {6};
+\draw [-latex'] ([yshift=.5cm]v2.east) -- ([yshift=.5cm]v3.west) node [numarr] {2};
+\draw [-latex'] ([yshift=-.5cm]v3.west) -- ([yshift=-.5cm]v2.east) node [numarr] {3};
+\draw [-latex'] ([xshift=-.75cm]v2.south) -- ([xshift=-.75cm]v4.north) node [numarrv] {4};
+\draw [-latex'] ([xshift=.75cm]v4.north) -- ([xshift=.75cm]v2.south) node [numarrv] {5};
+\draw [latex'-latex'] (v1) -- (v5) node [numarrv] {7};
+
+% fits
+\begin{scope}[on background layer]
+  \draw [dotted] (-11,12) rectangle (-7,3);
+  \draw [dotted, fill=CornflowerBlue!10!white] (-6,12) rectangle (6.5,3);
+\end{scope}
+\end{tikzpicture}
+}
