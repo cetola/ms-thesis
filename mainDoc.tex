@@ -8,6 +8,7 @@
 \usepackage{fontawesome5}
 \usepackage[acronym,toc]{glossaries}
 \usepackage[space]{cite}
+\usepackage{lipsum}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,fit,positioning,matrix,backgrounds,colorbrewer,colorbrewer}
 \usepackage{makecell}
@@ -35,6 +36,22 @@
 \newcommand\blto{BL3\textsubscript{1}\;}
 \newcommand\blttw{BL3\textsubscript{2}\;}
 \newcommand\bltt{BL3\textsubscript{3}\;}
+
+\newcommand{\instbit}[1]{\mbox{\scriptsize #1}}
+\newcommand{\instbitrange}[2]{~\instbit{#1} \hfill \instbit{#2}~}
+
+% Four-bit centered column.
+\newcolumntype{Y}{>{\centering\arraybackslash}p{0.72in}}
+% Six-bit centered column.
+\newcolumntype{S}{>{\centering\arraybackslash}p{1.08in}}
+% Twenty-five-bit centered column.
+\newcolumntype{J}{>{\centering\arraybackslash}p{4.5in}}
+
+
+\newcommand{\wiri}{\textbf{WIRI}}
+\newcommand{\wpri}{\textbf{WPRI}}
+\newcommand{\wlrl}{\textbf{WLRL}}
+\newcommand{\warl}{\textbf{WARL}}
 
 \definecolor{tbl-gre}{HTML}{9AFF99}
 \definecolor{tbl-yel}{HTML}{FFFFC7}

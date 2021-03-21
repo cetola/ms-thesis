@@ -1,0 +1,91 @@
+\begin{figure}[hpt]
+{\footnotesize
+\begin{center}
+\begin{tabular}{@{}Y@{}Y@{}Y@{}Yl}
+\instbitrange{31}{24} &
+\instbitrange{23}{16} &
+\instbitrange{15}{8} &
+\instbitrange{7}{0} & \\
+\cline{1-4}
+\multicolumn{1}{|c|}{pmp3cfg} &
+\multicolumn{1}{c|}{pmp2cfg} &
+\multicolumn{1}{c|}{pmp1cfg} &
+\multicolumn{1}{c|}{pmp0cfg} &
+\tt pmpcfg0 \\
+\cline{1-4}
+8 & 8 & 8 & 8 & \\
+\instbitrange{31}{24} &
+\instbitrange{23}{16} &
+\instbitrange{15}{8} &
+\instbitrange{7}{0} & \\
+\cline{1-4}
+\multicolumn{1}{|c|}{pmp7cfg} &
+\multicolumn{1}{c|}{pmp6cfg} &
+\multicolumn{1}{c|}{pmp5cfg} &
+\multicolumn{1}{c|}{pmp4cfg} &
+\tt pmpcfg1 \\
+\cline{1-4}
+8 & 8 & 8 & 8 & \\
+\instbitrange{31}{24} &
+\instbitrange{23}{16} &
+\instbitrange{15}{8} &
+\instbitrange{7}{0} & \\
+\cline{1-4}
+\multicolumn{1}{|c|}{pmp11cfg} &
+\multicolumn{1}{c|}{pmp10cfg} &
+\multicolumn{1}{c|}{pmp9cfg} &
+\multicolumn{1}{c|}{pmp8cfg} &
+\tt pmpcfg2 \\
+\cline{1-4}
+8 & 8 & 8 & 8 & \\
+\instbitrange{31}{24} &
+\instbitrange{23}{16} &
+\instbitrange{15}{8} &
+\instbitrange{7}{0} & \\
+\cline{1-4}
+\multicolumn{1}{|c|}{pmp15cfg} &
+\multicolumn{1}{c|}{pmp14cfg} &
+\multicolumn{1}{c|}{pmp13cfg} &
+\multicolumn{1}{c|}{pmp12cfg} &
+\tt pmpcfg3 \\
+\cline{1-4}
+8 & 8 & 8 & 8 & \\
+\end{tabular}
+\end{center}
+}
+{\footnotesize
+\begin{center}
+\begin{tabular}{@{}J}
+\instbitrange{31}{0} \\
+\hline
+\multicolumn{1}{|c|}{address[33:2] (\warl)} \\
+\hline
+32 \\
+\end{tabular}
+\end{center}
+}
+{\footnotesize
+\begin{center}
+\begin{tabular}{YSSYYY}
+\instbit{7} &
+\instbitrange{6}{5} &
+\instbitrange{4}{3} &
+\instbit{2} &
+\instbit{1} &
+\instbit{0} \\
+\hline
+\multicolumn{1}{|c|}{L (\warl)} &
+\multicolumn{1}{c|}{\wiri} &
+\multicolumn{1}{c|}{A (\warl)} &
+\multicolumn{1}{c|}{X (\warl)} &
+\multicolumn{1}{c|}{W (\warl)} &
+\multicolumn{1}{c|}{R (\warl)}
+\\
+\hline
+1 & 2 & 2 & 1 & 1 & 1 \\
+\end{tabular}
+\end{center}
+}
+\caption[RISC-V 32 bit PMP CSR Layout and Format]{\textbf{RV32 PMP CSR layout and format as well as the address register format.} Reproduced from the RISC-V privileged specification \cite{PrivIsa2019}.}
+\label{fig:pmpcfg-rv32}
+\end{figure}

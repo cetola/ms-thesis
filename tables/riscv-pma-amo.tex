@@ -1,0 +1,16 @@
+\begin{table*}[htp]
+\begin{center}
+\begin{tabular}{|l|l|}
+  \hline
+  AMO Class & Supported Operations \\
+  \hline
+  AMONone       & {\em None} \\
+  AMOSwap       & {\tt amoswap} \\
+  AMOLogical    & above + {\tt amoand}, {\tt amoor}, {\tt amoxor} \\
+  AMOArithmetic & above + {\tt amoadd}, {\tt amomin}, {\tt amomax}, {\tt amominu}, {\tt amomaxu} \\
+  \hline
+\end{tabular}
+\end{center}
+\caption[RISC-V Atomic Instructions for I/O]{\textbf{Classes of AMOs supported by I/O regions.} Reproduced from the original RISC-V Privileged Specification \cite{PrivIsa2019}.}
+\label{table:riscv-pma-amo}
+\end{table*}
