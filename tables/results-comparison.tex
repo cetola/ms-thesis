@@ -1,6 +1,5 @@
 \begin{table*}[p]
-\begin{center}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}                                  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP}   \\ \hline
 \cellcolor{tbl-yel}\textbf{Attestation}          & Platform dependent (Intel, Supermicro)                        & SoC manufacturer dependent (Qualcomm)                   & Firmware (Keystone, Sanctum)             \\ \hline
@@ -9,14 +8,13 @@
 \cellcolor{tbl-yel}\textbf{Programmable}         & Provided by SGX                            & Provided by TrustZone                          & Firmware (Keystone)                      \\ \hline
 \cellcolor{tbl-yel}\textbf{Recoverable}          & Platform dependent (Supermicro)                      & Firmware dependent  (TF-A)                          & Firmware dependent (none, currently) \\ \hline
 \end{tabular}
-\end{center}
 \caption[TEE Features and their dependencies]{\textbf{Several optional TEE features and the dependencies of those features.} Optional features of a TEE can be provided by the technology itself, by the chip manufacturer, by the platform vendor, or by the firmware. In turn, the firmware can be provided to the end user or can be custom. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
 \label{tab:tee-compare}
 \end{table*}
 
 \begin{table*}[p]
 \begin{center}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}                                           & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
 \cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent                            & SoC manufacturer dependent (Samsung)                     & Not currently available                     \\ \hline
@@ -30,7 +28,7 @@
 
 \begin{table*}[p]
 \begin{center}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}                                                         & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
 \cellcolor{tbl-yel}\textbf{Full recovery, any state}         & Y                                          & N                                              & N                                           \\ \hline

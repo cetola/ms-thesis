@@ -1,4 +1,13 @@
-\section{Shrinking SGX into the IoT Space}
-\section{Expanding TrustZone to the Cloud}
-\section{RISC-V PMP: Tiny with Room to Grow}
-\section{Feature Overview and Comparisons}
+\section{A Method for Comparing TEEs}
+As mentioned in Chapter \ref{chap:intro}, we will use the properties of a \gls{tee} as defined by the Confidential Computing Consortium \cite{cccTAC}, an open source project that brings together hardware vendors, cloud providers, and software developers to accelerate the adoption of \gls{tee} technologies and standards. They define code integrity, data integrity, and data confidentiality as three required properties of any hardware \gls{tee}. They also discuss more advanced features like code confidentiality, authenticated launch, programmability, \gls{attestation}, and recoverability, which can be considered optional properties of a \gls{tee}. Notably absent from our list of required properties is code confidentiality. There are several reasons why we might want our code to be confidential. It may contain proprietary algorithms for machine learning or other intellectual property. However the code that runs inside the \gls{tee} may be open source, making the feature of code confidentiality counterproductive. As such, that feature is considered an optional property by our definition.
+
+By authenticated launch, we mean a mechanism by which the \gls{tee} can prevent a host application from loading, or limit its functionality based on a set of criteria or security model. By programmability, we mean the ability of a \gls{tee} to be programmed with code that is unrestricted and able to be changed by the end user. This is apposed to a \gls{tee} with a limited set of available functions or one that is pre-programmed by the manufacturer or system vendor. By recoverability, we mean a way for the \gls{tee} to ``roll back'' to some known good state should any of the validations performed in order to assure integrity or confidentiality fail.
+
+While these properties are a good starting point for analysis and comparison, we must break these down further in order to engage in a more rigorous comparison. Authenticated launch can be broken up into two parts: the ability to prevent application launch, or the ability to launch applications with limited functionality. Programmability will be broken into three types: fully programmable, partially programmable, or non-programmable. \Gls{attestation} can be divided into three parts, with remote attestation, local attestation, and if a hardware root of trust is available. Recoverability will be considered. Revocation of keys or other components should cause those associate signatures to no longer be trusted. If we are able to recover the \gls{tcb} using a hardware \gls{rot} then the system is considered to be recoverable. This involves re-issuing keys from some trusted source without the need for re-provisioning.
+
+\renewcommand{\arraystretch}{1}
+\input{tables/results-comparison}
+
+\section{TEEs in Cloud Computing}
+\section{Embedded and IoT}
+\section{Considerations for Othe Use Cases}
