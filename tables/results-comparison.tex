@@ -1,12 +1,12 @@
 \begin{table*}[p]
-\begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
+\begin{tabular}{|L{3.1cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
-\textbf{}                                  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP}   \\ \hline
-\cellcolor{tbl-yel}\textbf{Attestation}          & Platform dependent (Intel, Supermicro)                        & SoC manufacturer dependent (Qualcomm)                   & Firmware (Keystone, Sanctum)             \\ \hline
-\cellcolor{tbl-yel}\textbf{Authenticated Launch} & Platform dependent (Intel)                        & Firmware dependent (TF-A)                            & Firmware dependent (none, currently)          \\ \hline
-\cellcolor{tbl-yel}\textbf{Code Confidentiality} & Provided by SGX                            & Platform Dependent  (MCIMX8M-EVKB)                           & Provided by PMP                               \\ \hline
-\cellcolor{tbl-yel}\textbf{Programmable}         & Provided by SGX                            & Provided by TrustZone                          & Firmware (Keystone)                      \\ \hline
-\cellcolor{tbl-yel}\textbf{Recoverable}          & Platform dependent (Supermicro)                      & Firmware dependent  (TF-A)                          & Firmware dependent (none, currently) \\ \hline
+\textbf{} & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP}   \\ \hline
+\cellcolor{tbl-yel}\textbf{Attestation}  & Platform dependent (Intel, Supermicro)  & SoC manufacturer dependent (Qualcomm)   & Firmware (Keystone, Sanctum)     \\ \hline
+\cellcolor{tbl-yel}\textbf{Authenticated Launch} & Platform dependent (Intel)  & Firmware dependent (TF-A)      & Firmware dependent (none, currently)  \\ \hline
+\cellcolor{tbl-yel}\textbf{\makecell[l]{Code\\Confidentiality}} & Provided by SGX      & Platform Dependent  (MCIMX8M-EVKB)     & Provided by PMP \\ \hline
+\cellcolor{tbl-yel}\textbf{Programmable} & Provided by SGX      & Provided by TrustZone    & Firmware (Keystone)      \\ \hline
+\cellcolor{tbl-yel}\textbf{Recoverable}  & Platform dependent (Supermicro)      & Firmware dependent  (TF-A)    & Firmware dependent (none, currently) \\ \hline
 \end{tabular}
 \caption[TEE Features and their dependencies]{\textbf{Several optional TEE features and the dependencies of those features.} Optional features of a TEE can be provided by the technology itself, by the chip manufacturer, by the platform vendor, or by the firmware. In turn, the firmware can be provided to the end user or can be custom. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
 \label{tab:tee-compare}
@@ -16,10 +16,10 @@
 \begin{center}
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
-\textbf{}                                           & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
-\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent                            & SoC manufacturer dependent (Samsung)                     & Not currently available                     \\ \hline
-\cellcolor{tbl-yel}\textbf{Local Attestation}  & Inherent in SGX                            & Firmware dependent (TF-A)                            & Firmware dependent (Keystone)                          \\ \hline
-\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)                       & Platform dependent  (MCIMX8M-EVKB)                           & Inherent in PMP specification                   \\ \hline
+\textbf{}  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
+\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent      & SoC manufacturer dependent (Samsung)     & Not currently available     \\ \hline
+\cellcolor{tbl-yel}\textbf{Local Attestation}  & Inherent in SGX      & Firmware dependent (TF-A)      & Firmware dependent (Keystone)    \\ \hline
+\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)       & Platform dependent  (MCIMX8M-EVKB)     & Inherent in PMP specification   \\ \hline
 \end{tabular}
 \end{center}
 \caption[Attestation Comparison]{\textbf{The possible attestation features and the dependencies of those features.} Optional features of attestation can be provided by the technology itself. However, several features require either the chip manufacturer, the platform vendor, or the end user to provide some resources. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
@@ -30,11 +30,11 @@
 \begin{center}
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
-\textbf{}                                                         & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
-\cellcolor{tbl-yel}\textbf{Full recovery, any state}         & Y                                          & N                                              & N                                           \\ \hline
-\cellcolor{tbl-yel}\textbf{Partial recovery, any state}      & Y                                          & Y                                              & N                                           \\ \hline
-\cellcolor{tbl-yel}\textbf{Full recovery, limited states}    & N                                          & Y                                              & N                                           \\ \hline
-\cellcolor{tbl-yel}\textbf{Partial recovery, limited states} & N                                          & Y                                              & Y                                           \\ \hline
+\textbf{}  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
+\cellcolor{tbl-yel}\textbf{Full recovery, any state} & Y & N     & N  \\ \hline
+\cellcolor{tbl-yel}\textbf{Partial recovery, any state}      & Y & Y     & N  \\ \hline
+\cellcolor{tbl-yel}\textbf{Full recovery, limited states}    & N & Y     & N  \\ \hline
+\cellcolor{tbl-yel}\textbf{Partial recovery, limited states} & N & Y     & Y  \\ \hline
 \end{tabular}
 \end{center}
 \caption[Recoverability Comparison]{\textbf{The possible recoverability features and the dependencies of those features.} Note that all these features will be firmware dependent. For Intel SGX, the features are supported as part of the Intel SDK provided to customers. Arm TrustZone has a reference implementation of the firmware required in Arm Trusted Firmware (see: \url{https://www.trustedfirmware.org/projects/tf-a/}). RISC-V only has partial recoverability and can be found in the Keystone Project here: \url{https://keystone-enclave.org/}. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
