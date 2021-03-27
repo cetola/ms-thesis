@@ -6,8 +6,8 @@
 
 \newglossaryentry{measurement}
 {
-        name=measurement,
-        description={A cryptographic hash of data or code that will be loaded into memory. If this hash represents a piece of software, we can consider this hash the software's ``identity'' \cite{beekman2016improving} for purposes of attestation}
+        name=cryptographic hash,
+        description={A cryptographic hash is the result of a mathematical function whose input is data of variable length and whose output is data of a deterministic value and fixed length. If this hash represents a piece of software, we can consider this hash the software's ``identity'' \cite{beekman2016improving} for purposes of attestation. Many systems of attestation refer to this hash as a ``measurement''}
 }
 
 \newglossaryentry{root of trust}{
@@ -33,4 +33,10 @@
 \newglossaryentry{hart}{
     name={hart},
     description={In a RISC-V system, a core contains an independent instruction fetch unit and each core can have multiple hardware threads. These hardware threads are referred to as harts}
+}
+
+\newglossaryentry{ring}{
+    name={privilege rings},
+    plural={privilege rings},
+    description={Also known as a ``protection ring'' or ``protection domain'' \cite{6234805}, these modes of operation allow a processor to restrict access to memory or special instructions. Switching between rings is the function of low-level software or firmware. Before the problem of secure remote computation described in Chapter \ref{chap:intro}, these rings provided adequate protection for software applications}
 }
