@@ -9,7 +9,7 @@
 \cellcolor{tbl-yel}\textbf{Recoverable}  & Platform dependent (Supermicro)      & Firmware dependent  (TF-A)    & Firmware dependent (none, currently) \\ \hline
 \cellcolor{tbl-yel}\textbf{Extensible}  & Not extensible      & Somewhat extensible    & Highly extensible \\ \hline
 \end{tabular}
-\caption[TEE Features and their dependencies]{\textbf{Several optional TEE features and the dependencies of those features.} Optional features of a TEE can be provided by the technology itself, by the chip manufacturer, by the platform vendor, or by the firmware. In turn, the firmware can be provided to the end user or can be custom. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
+\caption[TEE Features and their dependencies]{\textbf{Several optional \gls{tee} features and the dependencies of those features.} Optional features of a \gls{tee} can be provided by the technology itself, by the chip manufacturer, by the platform vendor, or by the firmware. In turn, the firmware can be provided to the end user by the hardware manufacturer, by the platform vendor, or can be custom. We mention some possible examples of platforms manufacturers or firmware providers where applicable in parentheses. \gls{tee} Technologies are colored in \colorbox{tbl-gre}{green} while properties of the \gls{tee} are colored in \colorbox{tbl-yel}{yellow}.}
 \label{tab:tee-compare}
 \end{table*}
 
@@ -18,27 +18,27 @@
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
-\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent      & Platform dependent     & Not available     \\ \hline
+\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent      & Platform dependent (Qualcomm)    & Not available     \\ \hline
 \cellcolor{tbl-yel}\textbf{Local Attestation}  & Inherent in SGX      & Firmware dependent (TF-A)      & Firmware dependent (Keystone)    \\ \hline
-\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)       & Platform dependent  (MCIMX8M-EVKB)     & SoC manufacturer dependent\textsuperscript{1}   \\ \hline
+\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)       & Platform dependent  (MCIMX8M-EVKB)     & Platform dependent (MPFS-ICICLE-KIT-ES)\textsuperscript{1}   \\ \hline
 \end{tabular}
 \end{center}
-\caption[Attestation Comparison]{\textbf{The possible attestation features and the dependencies of those features.} Optional features of attestation can be provided by the technology itself. However, several features require either the chip manufacturer, the platform vendor, or the end user to provide some resources. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}. \\ \noindent\rule{4cm}{0.4pt} \\ \textsuperscript{1} There is a RISC-V hardware root of trust that is available and fully open source, including an open source hardware implementation \cite{guilley2021implementing}.}
+\caption[Attestation Comparison]{\textbf{The possible attestation features and the dependencies of those features.} Each technology provides local and remote attestation as a possibility. However, each technology requires that the consumer of the technology commit some level of effort into implementing their specific security model. Notably absent is remote attestation for RISC-V \gls{pmp}. Remote attestation is indeed possible on these platforms, however no implementation is currently considered standard, and certainly no implementation is open source as of the writing of this thesis. \gls{tee} Technologies are colored in \colorbox{tbl-gre}{green} while properties of the \gls{tee} are colored in \colorbox{tbl-yel}{yellow}. \\ \noindent\rule{4cm}{0.4pt} \\ \textsuperscript{1} There is a RISC-V hardware root of trust that is available and fully open source, including an open source HDL implementation \cite{guilley2021implementing}. As an example platform one might use the Microchip PolarFire SoC Icicle kit (MPFS-ICICLE-KIT-ES). This platform contains non-volatile FPGA fabric which is made up of logic elements, on-chip memory, and math blocks. This is ideal for creating a hardware \gls{rot}.}
 \label{tab:attest-compare}
 \end{table*}
-\vspace{3cm}
+
 \begin{table*}[p]
 \begin{center}
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
-\cellcolor{tbl-yel}\textbf{Full recovery, any state} & Y & N     & N  \\ \hline
-\cellcolor{tbl-yel}\textbf{Partial recovery, any state}      & Y & Y     & N  \\ \hline
-\cellcolor{tbl-yel}\textbf{Full recovery, limited states}    & N & Y     & N  \\ \hline
-\cellcolor{tbl-yel}\textbf{Partial recovery, limited states} & N & Y     & Y  \\ \hline
+\cellcolor{tbl-yel}\textbf{Open Source SDK} & Y (Intel SGX SDK) & Y (OP-TEE)     & Y (Keystone)  \\ \hline
+\cellcolor{tbl-yel}\textbf{Open Source Firmware} & Y (TianoCore, coreboot) & Y (TF-A)    & Y (Keystone)  \\ \hline
+\cellcolor{tbl-yel}\textbf{Extensible HDL}    & N & Y     & Y  \\ \hline
+\cellcolor{tbl-yel}\textbf{Open Source HDL} & N & N     & Y  \\ \hline
 \end{tabular}
 \end{center}
-\caption[Recoverability Comparison]{\textbf{The possible recoverability features and the dependencies of those features.} Note that all these features will be firmware dependent. For Intel SGX, the features are supported as part of the Intel SDK provided to customers. Arm TrustZone has a reference implementation of the firmware required in Arm Trusted Firmware (see: \url{https://www.trustedfirmware.org/projects/tf-a/}). RISC-V only has partial recoverability and can be found in the Keystone Project here: \url{https://keystone-enclave.org/}. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
-\label{tab:recover-compare}
+\caption[Extensibility Comparison]{\textbf{The possible extensibility features and the dependencies of those features.} We consider open source options to be inherently extensible. Proprietary solutions are extensible only if modifications are supported by the vendor, as is the case with Arm and ``extensible HDL''. Certainly few if any Arm vendors will allow you to modify their HDL directly, however Arm's IP model does allow for some inherent modification by allowing one to pick and choose which IP they wish to use. Note that with Intel SGX, the concept of open source firmware will only allow limited extensibility to the functionality of the \gls{tee}. \gls{tee} Technologies are colored in \colorbox{tbl-gre}{green} while properties of the \gls{tee} are colored in \colorbox{tbl-yel}{yellow}.}
+\label{tab:ext-compare}
 \end{table*}
 
