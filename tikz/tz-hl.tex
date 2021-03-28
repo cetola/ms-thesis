@@ -1,56 +1,11 @@
 % makebox for over-wide figure   
 \makebox[\linewidth]{
 \begin{tikzpicture}[
-  scale=0.8, transform shape,
+  transform shape,
   nodes={text width=2cm, draw, minimum height=1cm, align=center},
   tee/.style={fill=CornflowerBlue!10!white},
   subtitle/.style={font=\bfseries, draw=none, text width=}
 ]
-    % external
-	\node (v1) at (-3,1.5) {RAM};
-	\node (v2) at (-3,-0.5) {ROM};
-	\node (v4) at (0,-0.5) {Internal peripherals};
-	\node (v3) at (0,1.5) {Processing core(s)};
-	\draw (-4.5,3) rectangle (1.5,-1.5);
-	\node[draw=none] at (-1.5,2.5) {SoC};
-	\node (v5) at (0,4) {External memory};
-	\node (v7) at (-3,4) {External peripherals};
-	\node[text width=, tee] (v6) at (-1.5,-2.5) {External Security SoC};
-	\draw  (-4,0.5) -- (1,0.5);
-	\draw  (v1) |- (-3,0.5);
-	\draw  (v2) |- (-3,0.5);
-	\draw  (v3) |- (0,0.5);
-	\draw  (v4) |- (0,0.5);
-	\draw  (v5) |- (0,3);
-	\draw  (v7) |- (-3,3);
-	\draw  (v6) |- (-1.5,-1.5);
-	\node[subtitle] at (-1.5,-4) {a) External secure element};
-	
-	\draw[dashed]  (2.25,5) -- (2.25,-4.5);
-	
-	% embedded
-	\node (v1b) at (4.5,1.5) {RAM};
-	\node (v2b) at (4.5,-0.5) {ROM};
-	\node (v4b) at (7.5,-0.5) {Internal peripherals};
-	\node (v3b) at (7.5,1.5) {Processing core(s)};
-	\draw (3,3) rectangle (9,-3);
-	\node[draw=none] at (6,2.5) {SoC};
-	\node (v5b) at (7.5,4) {External memory};
-	\node (v7b) at (4.5,4) {External peripherals};
-	\node[text width=, tee] (v6b) at (6,-2) {On-SoC security subsystem};
-	\draw  (3.5,0.5) -- (8.5,0.5);
-	\draw  (v1b) |- (4.5,0.5);
-	\draw  (v2b) |- (4.5,0.5);
-	\draw  (v3b) |- (7.5,0.5);
-	\draw  (v4b) |- (7.5,0.5);
-	\draw  (v5b) |- (7.5,3);
-	\draw  (v7b) |- (4.5,3);
-	\draw  (v6b) |- (6,0.5);
-	\node[subtitle] at (6,-4) {b) Embedded secure element};
-	
-	\draw[dashed]  (9.75,5) -- (9.75,-4.5);
-	
-	% processor
 	\node (v1c) at (12,1.5) {RAM};
 	\node (v2c) at (12,-0.5) {ROM};
 	\node (v4c) at (15,-0.5) {Internal peripherals};
@@ -66,13 +21,10 @@
 	\draw  (v4c) |- (15,0.5);
 	\draw  (v5c) |- (15,3);
 	\draw  (v7c) |- (12,3);
-	\node[subtitle] at (13.5,-4) {c) Processor secure environment};
-	
+	\node[subtitle] at (13.5,-2.5) {One Possible TrustZone Platform};
 	
 	% TEE elements
 	\begin{scope}[on background layer]
-		\path[tee] (v5b.90) rectangle (v5b.south east);
-		
 		\path[tee] (v1c.90) rectangle (v1c.south east);
 		\path[tee] (v2c.90) rectangle (v2c.south east);
 		\path[tee] (v3c.90) rectangle (v3c.south east);

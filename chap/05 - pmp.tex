@@ -47,9 +47,16 @@ Using these configuration registers and address registers, RISC-V systems are ab
 \section{Keystone Enclave}
 One of the first \gls{tee} solutions for RISC-V \gls{pmp} came out of the MIT Computer Science \& Artificial Intelligence Laboratory (CSAIL) and a project called Sanctum \cite{Costan2016a}. This work was done just before the RISC-V \gls{pmp} task group ratified the first version of their specification for \gls{pmp} in 2017. As such it was more of a prototype and required non-standard extensions to the RISC-V core. Keystone Enclave came out of efforts of researchers at UC Berkeley and takes advantage of the ratified \gls{pmp} specification.
 
+\begin{figure}[ht]
+\centering
+\input{tikz/rv-hl}
+\caption[High Level RISC-V PMP Overview]{\textbf{A high level overview of possible RISC-V PMP configurations.} RISC-V is highly customize and we can imagine many different possible solutions when building a platform. Reproduced as a simplified version of Figure 2-3 of the GlobalPlatform specification \cite{GlobalPlatform2018} as well as Teschke's rendering \cite{TeschkeSGX}.}
+\label{fig:rv-hl}
+\end{figure}
+
 As detailed in Figure \ref{figure:keystone-overview}, Keystone is a full software stack containing a firmware base which launches both trusted and untrusted runtimes. These runtimes then launch both trusted, isolated applications into the enclave as well as untrusted applications into the user space of a Linux-based operating system. Keystone defines a set of \gls{tee} primitives \cite{lee2020keystone}: Secure Boot, a ``Secure Source of Randomness'', and Remote Attestation. Keystone builds its framework off these primitives and allows for customization of their firmware which they call a secure monitor (SM). The SM is used to ``enforce TEE guarantees on the platform'' \cite{lee2019keystone}, and does so by taking advantage of key properties of RISC-V machine mode. These properties include machine mode's programmability, its ability to delegate interrupts, and its ability to manage memory access using \gls{pmp}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \includegraphics[width=\textwidth]{img/keystone-diagram-tmp.png}
 \caption[Keystone System Overview]{\textbf{A high level overview of a Keystone Enclave system.} The Keystone codebase includes the security monitor, enclave runtime, enclave application, Linux as an untrusted OS, and untrusted host applications. Reprinted from Figure 1 \cite{lee2019keystone}.
 \label{figure:keystone-overview}}
@@ -57,7 +64,7 @@ As detailed in Figure \ref{figure:keystone-overview}, Keystone is a full softwar
 
 There are two key features of RISC-V \gls{pmp} which Keystone takes advantage of in building their framework. The first is memory isolation which allows the secure monitor (SM) running in machine mode to restrict access to the enclave's memory. The second feature is the ability for \gls{pmp} to allow Keystone Enclave secure applications to use multiple hardware threads in executing code. As Lee notes, ``RISC-V provides per-hardware-thread views of physical memory via machine-mode and PMP registers. Using RISC-V thus allows multiple concurrent and potentially multi-threaded enclaves to access disjoint memory partitions while also opening up supervisor-mode and the MMU for enclave use.'' \cite{lee2020keystone}. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \includegraphics[width=\textwidth]{img/keystone-pmp-tmp.png}
 \caption[Keystone PMP Protection]{\textbf{Keystone memory isolation using RISC-V PMP as a primitive.} Keystone separates each untrusted and trusted application into its own memory space. The secure monitor (SM) is responsible for ensuring that the proper pmpcfg and pmpaddr configurations are applied with the correct permissions. Reprinted from Figure 2 \cite{lee2019keystone}.
 \label{figure:keystone-pmp}}

@@ -3,6 +3,13 @@ Arm released TrustZone in 2004 for their ``application capable'' cores, and only
  
 Arm \gls{soc} processors create a more absolute separation between the concepts of ``secure'' and ``normal or insecure'' operation than Intel \gls{sgx}. At its highest level this is accomplished using the \gls{scr} ``Non-Secure bit'' (NS) with 1 meaning non-secure and 0 meaning secure. This is perhaps the most fundamental element that separates Arm's two security worlds. Digging a bit deeper, this separation of worlds is accomplished using four separate primitives: one on the bus, one on the \gls{soc} core, one as part of the memory infrastructure, and finally one as part of the debug infrastructure.
 
+\begin{figure}[hb]
+\centering
+\input{tikz/tz-hl}
+\caption[High Level TrustZone Overview]{\textbf{A high level overview of Arm TrustZone layout on an SoC.} Note that unlike Intel \gls{sgx}, TrustZone is present as part of much of the SoC's platform. Reproduced as a simplified version of Figure 2-3 of the GlobalPlatform specification \cite{GlobalPlatform2018}.}
+\label{fig:tz-hl}
+\end{figure}
+
 Firstly, the bus interface, called the \gls{amba} \gls{axi}, partitions all of the \gls{soc}’s hardware and software resources by taking advantage of a set of bits. Hardware logic present in this ``TrustZone-enabled AMBA3 AXI  bus fabric'' \cite{ArmBuildingSS} ensures that no ``Secure World'' resources can be accessed by ``Normal World'' components. These bits include AWPROT for write transactions and ARPROT for read transactions where like the NS bit low is Secure and high is Non-secure. 
 
 Secondly, \gls{soc}s which include cores like the ARMv8-A, implement extensions which enable a single physical processor core to safely and efficiently execute code from both the Normal World and the Secure World in a time-sliced fashion \cite{TrustZoneExplained}. The value of the Non-Secure bit is read from the \gls{scr} and passed along down the bus to the memory controller and peripherals. A new instruction, the \gls{smc}, is added which allows the core to switch between the secure and normal modes. We will discuss the secure monitor firmware which is responsible for handling these interrupts in the next section.
