@@ -6,7 +6,7 @@ Arm \gls{soc} processors create a more absolute separation between the concepts 
 \begin{figure}[hb]
 \centering
 \input{tikz/tz-hl}
-\caption[High Level TrustZone Overview]{\textbf{A high level overview of Arm TrustZone layout on an SoC.} Note that unlike Intel \gls{sgx}, TrustZone is present as part of much of the SoC's platform. Reproduced as a simplified version of Figure 2-3 of the GlobalPlatform specification \cite{GlobalPlatform2018}.}
+\caption[High Level TrustZone Overview]{\textbf{A high level overview of Arm TrustZone layout on an SoC.} Note that unlike Intel \gls{sgx}, TrustZone is present as part of much of the SoC's platform. Shaded areas imply that some logic is present which allows TrustZone to secure the \gls{tee}. Note that in TrustZone systems, even the bus contains logic separating secure and normal operation. Reproduced as a simplified version of Figure 2-3 of the GlobalPlatform specification \cite{GlobalPlatform2018}.}
 \label{fig:tz-hl}
 \end{figure}
 
