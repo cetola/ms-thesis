@@ -11,7 +11,7 @@
 }
 
 \newglossaryentry{root of trust}{
-    name={root of trust},
+    name={Root of Trust},
     description={``A computing engine, code, and possibly data, all co-located on the same platform which provides security services. No ancestor entity is able to provide trustworthy attestation for the initial code and data state of the Root of Trust'' \cite{GlobalPlatform2018}. For system security purposes one might say, ``the buck stops here''}
 }
 
@@ -39,4 +39,9 @@
     name={privilege rings},
     plural={privilege rings},
     description={Also known as a ``protection ring'' or ``protection domain'' \cite{6234805}, these modes of operation allow a processor to restrict access to memory or special instructions. Switching between rings is the function of low-level software or firmware. Before the problem of secure remote computation described in Chapter \ref{chap:intro}, these rings provided adequate protection for software applications}
+}
+
+\newglossaryentry{trusted compute base}{
+    name={Trusted Compute Base},
+    description={When referenced generally, the code which must be trusted in order for the system to be considered secure. The code can include platform firmware, firmware from the manufacturer, or any code running inside the \gls{tee}. When in reference to a specific application, the TCB may only refer to the part of the application which runs inside the TCB}
 }

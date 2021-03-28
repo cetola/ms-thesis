@@ -7,6 +7,7 @@
 \cellcolor{tbl-yel}\textbf{\makecell[l]{Code\\Confidentiality}} & Provided by SGX      & Platform Dependent  (MCIMX8M-EVKB)     & Provided by PMP \\ \hline
 \cellcolor{tbl-yel}\textbf{Programmable} & Provided by SGX      & Provided by TrustZone    & Firmware (Keystone)      \\ \hline
 \cellcolor{tbl-yel}\textbf{Recoverable}  & Platform dependent (Supermicro)      & Firmware dependent  (TF-A)    & Firmware dependent (none, currently) \\ \hline
+\cellcolor{tbl-yel}\textbf{Extensible}  & Not extensible      & Somewhat extensible    & Highly extensible \\ \hline
 \end{tabular}
 \caption[TEE Features and their dependencies]{\textbf{Several optional TEE features and the dependencies of those features.} Optional features of a TEE can be provided by the technology itself, by the chip manufacturer, by the platform vendor, or by the firmware. In turn, the firmware can be provided to the end user or can be custom. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
 \label{tab:tee-compare}
@@ -17,15 +18,15 @@
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
 \hline
 \textbf{}  & \cellcolor{tbl-gre}\textbf{Intel SGX} & \cellcolor{tbl-gre}\textbf{Arm TrustZone} & \cellcolor{tbl-gre}\textbf{RISC-V PMP} \\ \hline
-\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent      & SoC manufacturer dependent (Samsung)     & Not currently available     \\ \hline
+\cellcolor{tbl-yel}\textbf{Remote Attestation} & Intel dependent      & Platform dependent     & Not available     \\ \hline
 \cellcolor{tbl-yel}\textbf{Local Attestation}  & Inherent in SGX      & Firmware dependent (TF-A)      & Firmware dependent (Keystone)    \\ \hline
-\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)       & Platform dependent  (MCIMX8M-EVKB)     & Inherent in PMP specification   \\ \hline
+\cellcolor{tbl-yel}\textbf{Hardware RoT}       & Platform dependent (Intel, Supermicro)       & Platform dependent  (MCIMX8M-EVKB)     & SoC manufacturer dependent\textsuperscript{1}   \\ \hline
 \end{tabular}
 \end{center}
-\caption[Attestation Comparison]{\textbf{The possible attestation features and the dependencies of those features.} Optional features of attestation can be provided by the technology itself. However, several features require either the chip manufacturer, the platform vendor, or the end user to provide some resources. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}.}
+\caption[Attestation Comparison]{\textbf{The possible attestation features and the dependencies of those features.} Optional features of attestation can be provided by the technology itself. However, several features require either the chip manufacturer, the platform vendor, or the end user to provide some resources. TEE Technologies are colored in \colorbox{tbl-gre}{green} while properties of the TEE are colored in \colorbox{tbl-yel}{yellow}. \\ \noindent\rule{4cm}{0.4pt} \\ \textsuperscript{1} There is a RISC-V hardware root of trust that is available and fully open source, including an open source hardware implementation \cite{guilley2021implementing}.}
 \label{tab:attest-compare}
 \end{table*}
-
+\vspace{3cm}
 \begin{table*}[p]
 \begin{center}
 \begin{tabular}{|L{3cm}|L{3.25cm}|L{3.25cm}|L{3.25cm}|}
