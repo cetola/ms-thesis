@@ -1,5 +1,8 @@
+\vspace{.1cm}
 \begin{figure}[hpt]
 {\footnotesize
+\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{sfig:pmpcfg}}
+\begin{subfigure}[b]{\textwidth}
 \begin{center}
 \begin{tabular}{@{}Y@{}Y@{}Y@{}Yl}
 \instbitrange{31}{24} &
@@ -52,8 +55,11 @@
 8 & 8 & 8 & 8 & \\
 \end{tabular}
 \end{center}
+\end{subfigure}
 }
 {\footnotesize
+\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{sfig:pmpaddr}}
+\begin{subfigure}[b]{\textwidth}
 \begin{center}
 \begin{tabular}{@{}J}
 \instbitrange{31}{0} \\
@@ -63,9 +69,13 @@
 32 \\
 \end{tabular}
 \end{center}
+\end{subfigure}
 }
 {\footnotesize
+\adjustbox{minipage=1.3em,valign=t}{\subcaption{}\label{sfig:pmpcfglayout}}
+\begin{subfigure}[b]{\textwidth}
 \begin{center}
+\resizebox{.85\textwidth}{!}{
 \begin{tabular}{YSSYYY}
 \instbit{7} &
 \instbitrange{6}{5} &
@@ -84,8 +94,10 @@
 \hline
 1 & 2 & 2 & 1 & 1 & 1 \\
 \end{tabular}
-\end{center}
 }
-\caption[RISC-V 32 bit PMP CSR Layout and Format]{\textbf{RV32 PMP CSR layout and format as well as the address register format.} Reproduced from the RISC-V privileged specification \cite{PrivIsa2019}.}
+\end{center}
+\end{subfigure}
+}
+\caption[RISC-V 32 bit PMP CSR Layout and Format]{\textbf{RV32 PMP CSR layout and format as well as the address register format.} Figure \ref{sfig:pmpcfg} describes the RV32 PMP configuration CSR layout. Figure \ref{sfig:pmpaddr} is the PMP address register format for RV32. Lastly, Figure \ref{sfig:pmpcfglayout} shows the PMP configuration register format. Figures reproduced from the RISC-V privileged specification \cite{PrivIsa2019}.}
 \label{fig:pmpcfg-rv32}
 \end{figure}
