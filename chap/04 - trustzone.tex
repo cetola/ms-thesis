@@ -33,7 +33,7 @@ Arm Trusted Firmware uses the scaffolding provided by the A-Class devices to imp
 \begin{figure}[ht]
 \centering
 \input{tikz/tbb-flow}
-\caption[Arm's Trusted Board Boot]{\textbf{A significantly simplified boot flow for setting up a secure \gls{rot} on an Arm system running Trusted Firmware.} Here we see the boot flow from a cold reset all the way to the Normal World bootloader which may load any untrusted OS kernel.}
+\caption[High Level Overview of Trusted Board Boot]{\textbf{A significantly simplified boot flow for setting up a secure \gls{rot} on an Arm system running Trusted Firmware.} Here we see the boot flow from a cold reset all the way to the Normal World bootloader which may load any untrusted OS kernel.}
 \label{fig:tbb-flow}
 \end{figure}
 
@@ -45,7 +45,7 @@ This Secure Monitor runs in EL3 and is responsible for loading both the Secure O
 
 \begin{figure}[ht]
 \makebox[\textwidth][c]{\input{tikz/tz-overview}
-}\caption[Arm TrustZone Example of Normal and Secure World]{\textbf{Secure World implementation using ARM TrustZone.}
+}\caption[TrustZone Example of Normal and Secure World]{\textbf{Secure World implementation using ARM TrustZone.}
 The \gls{soc} boots into the Secure World and a monitor is registered which acts as the interface between the ``secure'' and ``normal'' worlds. All EL3 exceptions are caught by the secure monitor, and there is a special EL3 exception called a ``secure monitor call'' which is used to switch the processor between the two worlds. Figure recreated and modified from the original \cite{TeschkeSGX}.
 \label{fig:tz-overview}}
 \end{figure}
@@ -61,7 +61,7 @@ At power on, implicitly trusted code living in secure ROM or SRAM is executed. S
 \begin{figure}[hp]
 \centering
 \input{tikz/tz-measure}
-\caption[Arm Trusted Firmware Trusted Board Boot]{\textbf{\glsreset{tbb}\gls{tbb} flow in \glsreset{tfa}\gls{tfa}} The boot flow begins with implicitly trusted keys and code living in some secure ROM or SRAM (BL1). Each stage of the boot is then verified against the \gls{rot} public key and each bootloader stage is hash checked. All this information can be found in the Arm TBBR-CLIENT documentation \cite{ArmTrustedBoot}. This diagram and flow description were recreated from a presentation by Matteo Carlini entitled ``Secure Boot on ARM Systems: Building a Complete Chain of Trust Upon Existing Industry Standards Using Open-source Firmware''.}
+\caption[Detail of Trusted Firmware Trusted Board Boot]{\textbf{\glsreset{tbb}\gls{tbb} flow in \glsreset{tfa}\gls{tfa}} The boot flow begins with implicitly trusted keys and code living in some secure ROM or SRAM (BL1). Each stage of the boot is then verified against the \gls{rot} public key and each bootloader stage is hash checked. All this information can be found in the Arm TBBR-CLIENT documentation \cite{ArmTrustedBoot}. This diagram and flow description were recreated from a presentation by Matteo Carlini entitled ``Secure Boot on ARM Systems: Building a Complete Chain of Trust Upon Existing Industry Standards Using Open-source Firmware''.}
 \label{fig:tz-measure}
 \end{figure}
 
