@@ -1,5 +1,6 @@
 % makebox for over-wide figure   
 \makebox[\linewidth]{
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
   scale=0.8, transform shape,
   nodes={text width=2cm, draw, minimum height=1cm, align=center},
@@ -81,4 +82,5 @@
 		\path[tee] (v7c.90) rectangle (v7c.south east);
 	\end{scope}
 \end{tikzpicture}
+}
 }
